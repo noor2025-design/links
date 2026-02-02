@@ -1,4 +1,20 @@
 :root{
-color: black;
-background-color:bisque;
+--color: black;
+--background-color:bisque;
 }
+
+body{
+color: var(--color);
+background-color: var(--background-color) ;
+
+}
+
+
+
+
+
+footer{
+
+}
+
+
