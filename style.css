@@ -5,10 +5,16 @@
 
 body{
 color: var(--color);
-background-color: var(--background-color) ;
+background-color: var(--background-color);
 
 }
 
+h1{
+  font-family: "Caprasimo", serif;
+  font-size: 6rem;
+
+}
+}
 
 
 
