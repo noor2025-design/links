@@ -1,6 +1,6 @@
 :root {
-  --color: #412B2E;
-  --background-color: #EDDCBC;
+  --color: #412b2e;
+  --background-color: #eddcbc;
 }
 
 body {
@@ -21,11 +21,11 @@ body {
   width: 100%;
   height: 100%;
 }
-h2{
-    font-family: "Cedarville Cursive", sans-serif;
-    font-size:  4rem;
-    color: #E27247;
-    /* align-self: flex-start; */
+h2 {
+  font-family: "Cedarville Cursive", sans-serif;
+  font-size: 4rem;
+  color: #e27247;
+  /* align-self: flex-start; */
 }
 .intro-text {
   padding: 4rem 6rem;
@@ -33,7 +33,6 @@ h2{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 .intro-text p {
   max-width: 800px;
@@ -42,15 +41,15 @@ h2{
   padding-block: 2rem;
 }
 .intro-text p::after {
-content: "";
-position: absolute;
-left: 50%;
-bottom: 0;
-transform: translateX(-50%);
-width: 50%;
-/* height: 2px;
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 50%;
+  /* height: 2px;
 background-color: black; */
-border-bottom:2px solid #412B2E ;
+  border-bottom: 2px solid #412b2e;
 }
 h1 {
   font-family: "Caprasimo", serif;
@@ -59,33 +58,52 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #E27247;
+  color: #e27247;
   text-align: center;
+}
+.arena-collection {
+  display: flex;
+  justify-content: center;
+}
+figure {
+  padding: 2rem;
+  width: 60vw;
+  overflow: hidden;
+}
+.image-wrapper{
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 footer {
-   width: 100%;
-   height: 40vh;
-   /* padding: ; */
-   background-color: #E27247;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+  width: 100%;
+  height: 40vh;
+  /* padding: ; */
+  background-color: #e27247;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.footer-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
-.footer-links{
-    padding: 4rem 6rem;
+.footer-links {
+  padding: 4rem 6rem;
 }
-.footer-bottom{
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 2rem;
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 @media (width>=1024px) {
   /* .intro-text{
