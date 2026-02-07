@@ -11,7 +11,7 @@ let placeChannelInfo = (channelData) => {
 	let channelLink = document.querySelector('#channel-link')
 
 	console.log(channelData.description.html)
-    
+
     // Then set their content/attributes to our data:
 	channelTitle.innerHTML = channelData.title
 	channelDescription.innerHTML = channelData.description.html
@@ -23,6 +23,8 @@ let placeChannelInfo = (channelData) => {
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (blockData) => {
+    console.log(blockData.type);
+    
 	// To start, a shared `ul` where we’ll insert all our blocks
 	let channelBlocks = document.querySelector('#channel-blocks')
 
@@ -58,11 +60,14 @@ let renderBlock = (blockData) => {
 	// Images!
 	else if (blockData.type == 'Image') {
 		// …up to you!
+        console.log("image-type");
+        
 	}
 
 	// Text!
 	else if (blockData.type == 'Text') {
 		// …up to you!
+         console.log("text-type");
 	}
 
 	// Uploaded (not linked) media…
@@ -71,6 +76,7 @@ let renderBlock = (blockData) => {
 
 		// Uploaded videos!
 		if (contentType.includes('video')) {
+             console.log("video-type");
 			// …still up to you, but we’ll give you the `video` element:
 			let videoItem =
 				`
@@ -89,10 +95,12 @@ let renderBlock = (blockData) => {
 		// Uploaded PDFs!
 		else if (contentType.includes('pdf')) {
 			// …up to you!
+             console.log("pdf-type");
 		}
 
 		// Uploaded audio!
 		else if (contentType.includes('audio')) {
+             console.log("audio-type");
 			// …still up to you, but here’s an `audio` element:
 			let audioItem =
 				`
@@ -133,6 +141,8 @@ let renderBlock = (blockData) => {
 		// Linked audio!
 		else if (embedType.includes('rich')) {
 			// …up to you!
+            console.log("embed-audio-type");
+            
 		}
 	}
 }

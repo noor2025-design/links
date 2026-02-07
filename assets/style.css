@@ -38,13 +38,13 @@ h2 {
   align-items: center;
   flex-direction: column;
 }
-.intro-text article {
+#channel-description {
   max-width: 800px;
   font-size: 1.5rem;
   position: relative;
   padding-block: 2rem;
 }
-.intro-text article::after {
+#channel-description::after {
   content: "";
   position: absolute;
   left: 50%;
