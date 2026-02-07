@@ -10,7 +10,9 @@ let placeChannelInfo = (channelData) => {
 	let channelCount = document.querySelector('#channel-count')
 	let channelLink = document.querySelector('#channel-link')
 
-	// Then set their content/attributes to our data:
+	console.log(channelData.description.html)
+    
+    // Then set their content/attributes to our data:
 	channelTitle.innerHTML = channelData.title
 	channelDescription.innerHTML = channelData.description.html
 	channelCount.innerHTML = channelData.counts.blocks

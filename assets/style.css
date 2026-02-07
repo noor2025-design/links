@@ -40,7 +40,7 @@ h2 {
   position: relative;
   padding-block: 2rem;
 }
-.intro-text p::after {
+.intro-text article::after {
   content: "";
   position: absolute;
   left: 50%;
