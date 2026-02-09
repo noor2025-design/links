@@ -109,16 +109,17 @@ let renderBlock = (blockData) => {
 
     // Uploaded audio!
     else if (contentType.includes("audio")) {
-      console.log("audio-type");
+      console.log("audio-type",blockData);
+    
       // …still up to you, but here’s an `audio` element:
       let audioItem = `
-				<li class="video-embed-block">
+				<li class="audio-block">
 					<p><em>Audio</em></p>
 					<audio controls src="${blockData.attachment.url}"></audio>
 				</li>
 				`;
 
-    //   channelBlocks.insertAdjacentHTML("beforeend", audioItem);
+      channelBlocks.insertAdjacentHTML("beforeend", audioItem);
 
       // More on`audio`:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
@@ -133,7 +134,7 @@ let renderBlock = (blockData) => {
     if (embedType.includes("video")) {
       // …still up to you, but here’s an example `iframe` element:
       let linkedVideoItem = `
-				<li>
+				<li class="video-embed-block">
 					<p><em>Linked Video</em></p>
 					${blockData.embed.html}
 				</li>
@@ -148,7 +149,17 @@ let renderBlock = (blockData) => {
     // Linked audio!
     else if (embedType.includes("rich")) {
       // …up to you!
-      console.log("embed-audio-type");
+
+      let linkedAudioItem = `
+				<li class="audio-embed-block">
+					<p><em>Linked Audio</em></p>
+					${blockData.embed.html}
+				</li>
+				`;
+
+      channelBlocks.insertAdjacentHTML("beforeend", linkedAudioItem);
+
+      console.log("embed-audio-type", blockData);
     }
   }
 };
