@@ -27,9 +27,11 @@ let renderBlock = (blockData) => {
 
   // Links!
   if (blockData.type == "Link") {
+    console.log(blockData);
+    
     // Declares a “template literal” of the dynamic HTML we want.
     let linkItem = `
-			<li>
+			<li class="link-block">
 				<p><em>Link</em></p>
 				<figure>
 					<picture>
@@ -39,7 +41,7 @@ let renderBlock = (blockData) => {
 					</picture>
 					<figcaption>
 						<h3>${blockData.title}</h3>
-						${blockData.description.html}
+						${blockData.description?.html}
 					</figcaption>
 				</figure>
 				<p><a href="${blockData.source.url}">See the original ↗</a></p>
@@ -47,7 +49,7 @@ let renderBlock = (blockData) => {
 			`;
 
     // And puts it into the page!
-    // channelBlocks.insertAdjacentHTML("beforeend", linkItem);
+    channelBlocks.insertAdjacentHTML("beforeend", linkItem);
 
     // More on template literals:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
@@ -93,7 +95,7 @@ let renderBlock = (blockData) => {
 				</li>
 				`;
 
-    //   channelBlocks.insertAdjacentHTML("beforeend", videoItem);
+      channelBlocks.insertAdjacentHTML("beforeend", videoItem);
 
       // More on `video`, like the `autoplay` attribute:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
@@ -110,9 +112,9 @@ let renderBlock = (blockData) => {
       console.log("audio-type");
       // …still up to you, but here’s an `audio` element:
       let audioItem = `
-				<li>
+				<li class="video-embed-block">
 					<p><em>Audio</em></p>
-					<audio controls src="${blockData.attachment.url}"></video>
+					<audio controls src="${blockData.attachment.url}"></audio>
 				</li>
 				`;
 
@@ -137,7 +139,7 @@ let renderBlock = (blockData) => {
 				</li>
 				`;
 
-    //   channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
+      channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
       // More on `iframe`:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
