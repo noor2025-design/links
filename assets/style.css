@@ -73,9 +73,17 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
+
+
 figure {
   padding: 2rem;
   width: 60vw;
+  overflow: hidden;
+}
+
+.image-block{
+   width: 100%;
+  aspect-ratio: 1/1;
   overflow: hidden;
 }
 .image-wrapper{

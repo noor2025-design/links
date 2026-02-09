@@ -1,207 +1,207 @@
-let channelSlug = 'a-glimpse-of-life-history-and-culture-in-hong-kong' // The “slug” is just the end of the URL.
-let myUsername = 'noor-abdus-saboor' // For linking to your profile.
-
+let channelSlug = "a-glimpse-of-life-history-and-culture-in-hong-kong"; // The “slug” is just the end of the URL.
+let myUsername = "noor-abdus-saboor"; // For linking to your profile.
 
 // First, let’s lay out some *functions*, starting with our basic metadata:
 let placeChannelInfo = (channelData) => {
-	// Target some elements in your HTML:
-	let channelTitle = document.querySelector('#channel-title')
-	let channelDescription = document.querySelector('#channel-description')
-	let channelCount = document.querySelector('#channel-count')
-	let channelLink = document.querySelector('#channel-link')
+  // Target some elements in your HTML:
+  let channelTitle = document.querySelector("#channel-title");
+  let channelDescription = document.querySelector("#channel-description");
+  let channelCount = document.querySelector("#channel-count");
+  let channelLink = document.querySelector("#channel-link");
 
-	console.log(channelData.description.html)
+  console.log(channelData.description.html);
 
-    // Then set their content/attributes to our data:
-	channelTitle.innerHTML = channelData.title
-	channelDescription.innerHTML = channelData.description.html
-	channelCount.innerHTML = channelData.counts.blocks
-	channelLink.href = `https://www.are.na/channel/${channelSlug}`
-}
-
-
+  // Then set their content/attributes to our data:
+  channelTitle.innerHTML = channelData.title;
+  channelDescription.innerHTML = channelData.description.html;
+  channelCount.innerHTML = channelData.counts.blocks;
+  channelLink.href = `https://www.are.na/channel/${channelSlug}`;
+};
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (blockData) => {
-    console.log(blockData.type);
-    
-	// To start, a shared `ul` where we’ll insert all our blocks
-	let channelBlocks = document.querySelector('#channel-blocks')
+  console.log(blockData.type);
 
-	// Links!
-	if (blockData.type == 'Link') {
-		// Declares a “template literal” of the dynamic HTML we want.
-		let linkItem =
-			`
+  // To start, a shared `ul` where we’ll insert all our blocks
+  let channelBlocks = document.querySelector("#channel-blocks");
+
+  // Links!
+  if (blockData.type == "Link") {
+    // Declares a “template literal” of the dynamic HTML we want.
+    let linkItem = `
 			<li>
 				<p><em>Link</em></p>
 				<figure>
 					<picture>
-						<source media="(width < 500px)" srcset="${ blockData.image.small.src_2x }">
-						<source media="(width < 1000px)" srcset="${ blockData.image.medium.src_2x }">
-						<img alt="${blockData.image.alt_text}" src="${ blockData.image.large.src_2x }">
+						<source media="(width < 500px)" srcset="${blockData.image.small.src_2x}">
+						<source media="(width < 1000px)" srcset="${blockData.image.medium.src_2x}">
+						<img alt="${blockData.image.alt_text}" src="${blockData.image.large.src_2x}">
 					</picture>
 					<figcaption>
-						<h3>${ blockData.title }</h3>
-						${ blockData.description.html }
+						<h3>${blockData.title}</h3>
+						${blockData.description.html}
 					</figcaption>
 				</figure>
-				<p><a href="${ blockData.source.url }">See the original ↗</a></p>
+				<p><a href="${blockData.source.url}">See the original ↗</a></p>
 			</li>
-			`
+			`;
 
-		// And puts it into the page!
-		channelBlocks.insertAdjacentHTML('beforeend', linkItem)
+    // And puts it into the page!
+    // channelBlocks.insertAdjacentHTML("beforeend", linkItem);
 
-		// More on template literals:
-		// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
-	}
+    // More on template literals:
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+  }
 
-	// Images!
-	else if (blockData.type == 'Image') {
-		// …up to you!
-        console.log("image-type");
+  // Images!
+  else if (blockData.type == "Image") {
+    // …up to you!
+    console.log("image-type", blockData);
+
+    let imageItem = `
+        <li>
+            <picture class="image-block">
+                <source media="(width < 500px)" srcset="${blockData.image.small.src_2x}">
+                <source media="(width < 1000px)" srcset="${blockData.image.medium.src_2x}">
+                <img alt="${blockData.image.alt_text}" src="${blockData.image.large.src_2x}">
+            </picture>
         
-	}
+        </li>
+        `;
 
-	// Text!
-	else if (blockData.type == 'Text') {
-		// …up to you!
-         console.log("text-type");
-	}
+    channelBlocks.insertAdjacentHTML("beforeend", imageItem);
+  }
 
-	// Uploaded (not linked) media…
-	else if (blockData.type == 'Attachment') {
-		let contentType = blockData.attachment.content_type // Save us some repetition.
+  // Text!
+  else if (blockData.type == "Text") {
+    // …up to you!
+    console.log("text-type");
+  }
 
-		// Uploaded videos!
-		if (contentType.includes('video')) {
-             console.log("video-type");
-			// …still up to you, but we’ll give you the `video` element:
-			let videoItem =
-				`
+  // Uploaded (not linked) media…
+  else if (blockData.type == "Attachment") {
+    let contentType = blockData.attachment.content_type; // Save us some repetition.
+
+    // Uploaded videos!
+    if (contentType.includes("video")) {
+      console.log("video-type");
+      // …still up to you, but we’ll give you the `video` element:
+      let videoItem = `
 				<li>
 					<p><em>Video</em></p>
-					<video controls src="${ blockData.attachment.url }"></video>
+					<video controls src="${blockData.attachment.url}"></video>
 				</li>
-				`
+				`;
 
-			channelBlocks.insertAdjacentHTML('beforeend', videoItem)
+    //   channelBlocks.insertAdjacentHTML("beforeend", videoItem);
 
-			// More on `video`, like the `autoplay` attribute:
-			// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
-		}
+      // More on `video`, like the `autoplay` attribute:
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
+    }
 
-		// Uploaded PDFs!
-		else if (contentType.includes('pdf')) {
-			// …up to you!
-             console.log("pdf-type");
-		}
+    // Uploaded PDFs!
+    else if (contentType.includes("pdf")) {
+      // …up to you!
+      console.log("pdf-type");
+    }
 
-		// Uploaded audio!
-		else if (contentType.includes('audio')) {
-             console.log("audio-type");
-			// …still up to you, but here’s an `audio` element:
-			let audioItem =
-				`
+    // Uploaded audio!
+    else if (contentType.includes("audio")) {
+      console.log("audio-type");
+      // …still up to you, but here’s an `audio` element:
+      let audioItem = `
 				<li>
 					<p><em>Audio</em></p>
-					<audio controls src="${ blockData.attachment.url }"></video>
+					<audio controls src="${blockData.attachment.url}"></video>
 				</li>
-				`
+				`;
 
-			channelBlocks.insertAdjacentHTML('beforeend', audioItem)
+    //   channelBlocks.insertAdjacentHTML("beforeend", audioItem);
 
-			// More on`audio`:
-			// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-		}
-	}
+      // More on`audio`:
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
+    }
+  }
 
-	// Linked (embedded) media…
-	else if (blockData.type == 'Embed') {
-		let embedType = blockData.embed.type
+  // Linked (embedded) media…
+  else if (blockData.type == "Embed") {
+    let embedType = blockData.embed.type;
 
-		// Linked video!
-		if (embedType.includes('video')) {
-			// …still up to you, but here’s an example `iframe` element:
-			let linkedVideoItem =
-				`
+    // Linked video!
+    if (embedType.includes("video")) {
+      // …still up to you, but here’s an example `iframe` element:
+      let linkedVideoItem = `
 				<li>
 					<p><em>Linked Video</em></p>
-					${ blockData.embed.html }
+					${blockData.embed.html}
 				</li>
-				`
+				`;
 
-			channelBlocks.insertAdjacentHTML('beforeend', linkedVideoItem)
+    //   channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
-			// More on `iframe`:
-			// https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
-		}
+      // More on `iframe`:
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+    }
 
-		// Linked audio!
-		else if (embedType.includes('rich')) {
-			// …up to you!
-            console.log("embed-audio-type");
-            
-		}
-	}
-}
-
-
+    // Linked audio!
+    else if (embedType.includes("rich")) {
+      // …up to you!
+      console.log("embed-audio-type");
+    }
+  }
+};
 
 // A function to display the owner/collaborator info:
 let renderUser = (userData) => {
-	let channelUsers = document.querySelector('#channel-users') // Container.
+  let channelUsers = document.querySelector("#channel-users"); // Container.
 
-	let userAddress =
-		`
+  let userAddress = `
 		<address>
-			<img src="${ userData.avatar }">
-			<h3>${ userData.name }</h3>
-			<p><a href="https://are.na/${ userData.slug }">Are.na profile ↗</a></p>
+			<img src="${userData.avatar}">
+			<h3>${userData.name}</h3>
+			<p><a href="https://are.na/${userData.slug}">Are.na profile ↗</a></p>
 		</address>
-		`
+		`;
 
-	channelUsers.insertAdjacentHTML('beforeend', userAddress)
-}
-
-
+  channelUsers.insertAdjacentHTML("beforeend", userAddress);
+};
 
 // Finally, a helper function to fetch data from the API, then run a callback function with it:
 let fetchJson = (url, callback) => {
-	fetch(url, { cache: 'no-store' })
-		.then((response) => response.json())
-		.then((json) => callback(json))
-}
+  fetch(url, { cache: "no-store" })
+    .then((response) => response.json())
+    .then((json) => callback(json));
+};
 
 // More on `fetch`:
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch
 
-
-
 // Now that we have said all the things we *can* do, go get the channel data:
 fetchJson(`https://api.are.na/v3/channels/${channelSlug}`, (json) => {
-	console.log(json) // Always good to check your response!
+  console.log(json); // Always good to check your response!
 
-	placeChannelInfo(json) // Pass all the data to the first function, above.
-	renderUser(json.owner) // Pass just the nested object `.owner`.
-})
+  placeChannelInfo(json); // Pass all the data to the first function, above.
+  renderUser(json.owner); // Pass just the nested object `.owner`.
+});
 
 // Get your info to put with the owner's:
 fetchJson(`https://api.are.na/v3/users/${myUsername}/`, (json) => {
-	console.log(json) // See what we get back.
+  console.log(json); // See what we get back.
 
-	renderUser(json) // Pass this to the same function, no nesting.
-})
+  renderUser(json); // Pass this to the same function, no nesting.
+});
 
 // And the data for the blocks:
-fetchJson(`https://api.are.na/v3/channels/${channelSlug}/contents?per=100&sort=position_desc`, (json) => {
-	console.log(json) // See what we get back.
+fetchJson(
+  `https://api.are.na/v3/channels/${channelSlug}/contents?per=100&sort=position_desc`,
+  (json) => {
+    console.log(json); // See what we get back.
 
-	// Loop through the nested `.data` array (list).
-	json.data.forEach((blockData) => {
-		// console.log(blockData) // The data for a single block.
+    // Loop through the nested `.data` array (list).
+    json.data.forEach((blockData) => {
+      // console.log(blockData) // The data for a single block.
 
-		renderBlock(blockData) // Pass the single block’s data to the render function.
-	})
-})
+      renderBlock(blockData); // Pass the single block’s data to the render function.
+    });
+  },
+);
