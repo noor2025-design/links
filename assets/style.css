@@ -134,7 +134,7 @@ figcaption {
   padding: 1rem;
 }
 
-/* This is the styling for video-embed-block styling */
+/* This is the styling for video-embed-block */
 .video-embed-block{
    padding: 2rem;
   width: 60vw;
@@ -144,8 +144,19 @@ figcaption {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
+/* This is styling for audio-block */
+.audio-block{
+height: 100px;
+display:flex;
+align-items: center;
+flex-direction: column;
+}
+.audio-block audio{
+width: 70%;
+height: 100%;
+}
 
-/* This is styling for audio-embed-block styling */
+/* This is styling for audio-embed-block */
 
 footer {
   width: 100%;

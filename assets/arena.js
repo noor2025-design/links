@@ -9,7 +9,6 @@ let placeChannelInfo = (channelData) => {
   let channelCount = document.querySelector("#channel-count");
   let channelLink = document.querySelector("#channel-link");
 
-  console.log(channelData.description.html);
 
   // Then set their content/attributes to our data:
   channelTitle.innerHTML = channelData.title;
@@ -20,14 +19,14 @@ let placeChannelInfo = (channelData) => {
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (blockData) => {
-  console.log(blockData.type);
+//   console.log(blockData.type);
 
   // To start, a shared `ul` where we’ll insert all our blocks
   let channelBlocks = document.querySelector("#channel-blocks");
 
   // Links!
   if (blockData.type == "Link") {
-    console.log(blockData);
+    // console.log(blockData);
     
     // Declares a “template literal” of the dynamic HTML we want.
     let linkItem = `
@@ -58,7 +57,7 @@ let renderBlock = (blockData) => {
   // Images!
   else if (blockData.type == "Image") {
     // …up to you!
-    console.log("image-type", blockData);
+    // console.log("image-type", blockData);
 
     let imageItem = `
         <li>
@@ -86,7 +85,7 @@ let renderBlock = (blockData) => {
 
     // Uploaded videos!
     if (contentType.includes("video")) {
-      console.log("video-type");
+    //   console.log("video-type");
       // …still up to you, but we’ll give you the `video` element:
       let videoItem = `
 				<li>
@@ -104,7 +103,13 @@ let renderBlock = (blockData) => {
     // Uploaded PDFs!
     else if (contentType.includes("pdf")) {
       // …up to you!
-      console.log("pdf-type");
+      let pdfItem = `
+      <li class="pdf-block">
+		<iframe src=${blockData.attacment.filename }>		</iframe>	
+	</li>
+      `
+
+      console.log("pdf-type", blockData);
     }
 
     // Uploaded audio!
@@ -147,7 +152,8 @@ let renderBlock = (blockData) => {
     }
 
     // Linked audio!
-    else if (embedType.includes("rich")) {
+    else if (embedType.includes("rich")&& !blockData.source.url.includes("behance")) {
+
       // …up to you!
 
       let linkedAudioItem = `
