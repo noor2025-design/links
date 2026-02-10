@@ -76,7 +76,15 @@ let renderBlock = (blockData) => {
   // Text!
   else if (blockData.type == "Text") {
     // …up to you!
-    console.log("text-type");
+let textItem = 
+`
+<li class="text-block">
+		${blockData.content.html}
+	</li>
+`
+
+    channelBlocks.insertAdjacentHTML("beforeend", textItem);
+    console.log("text-type",blockData);
   }
 
   // Uploaded (not linked) media…
