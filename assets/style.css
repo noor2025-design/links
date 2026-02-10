@@ -73,8 +73,8 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
-#channel-blocks > li{
-margin-block: 2rem;
+#channel-blocks > li {
+  margin-block: 2rem;
 }
 
 /* This is the image-block styling */
@@ -98,9 +98,9 @@ li:has(.image-block) {
 }
 
 /* This is the link-block styling */
- /* :last-of-type select allows you to target the last occurence of an element within its container and not the entire page. */
- /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
-.link-block p:last-of-type{
+/* :last-of-type select allows you to target the last occurence of an element within its container and not the entire page. */
+/* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
+.link-block p:last-of-type {
   text-align: center;
 }
 figure {
@@ -126,7 +126,7 @@ li:has(video) {
   width: 60vw;
 }
 
-video{
+video {
   width: 100%;
 }
 figcaption {
@@ -135,28 +135,53 @@ figcaption {
 }
 
 /* This is the styling for video-embed-block */
-.video-embed-block{
-   padding: 2rem;
+.video-embed-block {
+  padding: 2rem;
   width: 60vw;
 }
 
-.video-embed-block > iframe{
+.video-embed-block > iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
 /* This is styling for audio-block */
-.audio-block{
-height: 100px;
-display:flex;
-align-items: center;
-flex-direction: column;
+.audio-block {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-.audio-block audio{
-width: 70%;
-height: 100%;
+.audio-block audio {
+  width: 70%;
+  height: 100%;
 }
 
 /* This is styling for audio-embed-block */
+.audio-embed-block{
+  padding: 2rem;
+  width: 60vw;
+flex-direction: column;
+ align-items: center;
+}
+
+.audio-embed-block > iframe{
+  width: 100%;
+  margin-block: 1rem;
+  /* height: 100%; */
+}
+
+/* This is styling for pdf-block */
+
+.pdf-block {
+  padding: 2rem;
+  width: 60vw;
+  height: 500px;
+}
+
+.pdf-block > iframe{
+  width: 100%;
+  height: 100%;
+}
 
 footer {
   width: 100%;

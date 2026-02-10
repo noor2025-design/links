@@ -105,10 +105,10 @@ let renderBlock = (blockData) => {
       // …up to you!
       let pdfItem = `
       <li class="pdf-block">
-		<iframe src=${blockData.attacment.filename }>		</iframe>	
+		<iframe src=${blockData.attachment.url }>		</iframe>	
 	</li>
       `
-
+channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
       console.log("pdf-type", blockData);
     }
 
@@ -176,7 +176,6 @@ let renderUser = (userData) => {
 
   let userAddress = `
 		<address>
-			<img src="${userData.avatar}">
 			<h3>${userData.name}</h3>
 			<p><a href="https://are.na/${userData.slug}">Are.na profile ↗</a></p>
 		</address>
