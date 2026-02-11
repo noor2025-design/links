@@ -1,7 +1,8 @@
 :root {
   --color: #412b2e;
   --background-color: #eddcbc;
-  --secondary-font:"Cedarville Cursive", sans-serif;
+  --primary-font: "space mono", sans-serif;
+  --secondary-font: "Cedarville Cursive", sans-serif;
 }
 
 body {
@@ -22,6 +23,9 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* I learned this CSS technique to only target the paragraph elements that inherits with the id channel-link */
+/* I pulled this information from https://dev.to/mechcloud_academy/exploring-the-has-pseudo-class-in-css-4p63 */
 p:has(#channel-link) {
   padding: 2rem;
 }
@@ -78,7 +82,7 @@ h1 {
   margin-block: 2rem;
 }
 
-/* This is the image-block styling */
+/* This is for image-block styling */
 
 li:has(.image-block) {
   padding: 2rem;
@@ -98,7 +102,7 @@ li:has(.image-block) {
   object-fit: cover;
 }
 
-/* This is the link-block styling */
+/* This is for link-block styling */
 /* :last-of-type select allows you to target the last occurence of an element within its container and not the entire page. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
 .link-block p:last-of-type {
@@ -135,7 +139,7 @@ figcaption {
   padding: 1rem;
 }
 
-/* This is the styling for video-embed-block */
+/* This is styling for video-embed-block */
 .video-embed-block {
   padding: 2rem;
   width: 60vw;
@@ -145,7 +149,7 @@ figcaption {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
-/* This is styling for audio-block */
+/* This is for styling for audio-block */
 .audio-block {
   height: 100px;
   display: flex;
@@ -157,15 +161,15 @@ figcaption {
   height: 100%;
 }
 
-/* This is styling for audio-embed-block */
-.audio-embed-block{
+/* This is for styling audio-embed-block */
+.audio-embed-block {
   padding: 2rem;
   width: 60vw;
-flex-direction: column;
- align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.audio-embed-block > iframe{
+.audio-embed-block > iframe {
   width: 100%;
   margin-block: 1rem;
   /* height: 100%; */
@@ -178,30 +182,31 @@ flex-direction: column;
   height: 500px;
 }
 
-.pdf-block > iframe{
+.pdf-block > iframe {
   width: 100%;
   height: 100%;
 }
 
 /* Styling for text-block */
-.text-block{
-   padding: 2rem;
+.text-block {
+  padding: 2rem;
   width: 60vw;
-  
 }
 
-.text-block p:first-of-type{
-font-family: var(--secondary-font);
-font-size: 3rem;
-text-align: center;
-}
-
-.text-block p:last-of-type{
+/* :first-of-type select allows you to target the first occurence of an element within its container and not the entire page. */
+/* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/f/first-of-type/ */
+.text-block p:first-of-type {
+  font-family: var(--secondary-font);
+  font-size: 3rem;
   text-align: center;
-/* font-family: var(--secondary-font); */
 }
 
-p:has(#channel-count){
+.text-block p:last-of-type {
+  text-align: center;
+  /* font-family: var(--secondary-font); */
+}
+
+p:has(#channel-count) {
   margin-block: 2rem;
 }
 footer {

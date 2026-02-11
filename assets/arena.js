@@ -29,6 +29,10 @@ let renderBlock = (blockData) => {
     // console.log(blockData);
     
     // Declares a “template literal” of the dynamic HTML we want.
+    // One of the arena blocks that the owner of the channel created did not have a description so the console had an error of "null" so to prevent this error I had to add a "?" called optional chaining operator.
+    // I pulled the syntax from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining.
+    //  I learned that it accesses the blockData.description.html but if the description is null than it will cause errors but instead it will provide an undefined.
+
     let linkItem = `
 			<li class="link-block">
 				<p><em>Link</em></p>
@@ -156,10 +160,12 @@ channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
       channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
       // More on `iframe`:
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
-    }
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe 
+    } 
 
+    // There is an issue where an arena block is a image gallery from behance created by the owner of the channel that is being pulled in as linked audio instead of images but displayed as audio on the page. I learned from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean that a boolean expression checks for two conditions in this case it would be rich embed type and not behance using the && "AND" operator and ! to not include behance until I figure out how to solve this issue.    
     // Linked audio!
+    
     else if (embedType.includes("rich")&& !blockData.source.url.includes("behance")) {
 
       // …up to you!
