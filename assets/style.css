@@ -24,7 +24,7 @@ body {
   height: 100%;
 }
 
-/* I learned this CSS technique to only target the paragraph elements that inherits with the id channel-link */
+/* I learned this CSS technique :has() to only target the paragraph elements that inherits with the id channel-link */
 /* I pulled this information from https://dev.to/mechcloud_academy/exploring-the-has-pseudo-class-in-css-4p63 */
 p:has(#channel-link) {
   padding: 2rem;
