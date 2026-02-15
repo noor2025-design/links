@@ -11,6 +11,7 @@ let placeChannelInfo = (channelData) => {
 
 
   // Then set their content/attributes to our data:
+//   channelTitle.innerHTML = "HONG KONG";
   channelTitle.innerHTML = channelData.title;
   channelDescription.innerHTML = channelData.description.html;
   channelCount.innerHTML = channelData.counts.blocks;
@@ -164,7 +165,7 @@ channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
     } 
 
     // There is an issue where an arena block is a image gallery from behance created by the owner of the channel that is being pulled in as linked audio instead of images but displayed as linked audio on the page. I learned from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean that a boolean expression checks for two conditions in this case it would be rich embed type and not behance using the && "AND" operator and ! to not include behance until I figure out how to solve this issue. 
-       
+
     // Linked audio!
     
     else if (embedType.includes("rich")&& !blockData.source.url.includes("behance")) {
