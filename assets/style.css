@@ -71,6 +71,12 @@ h2 {
   color: #e27247;
   /* align-self: flex-start; */
 }
+.arena-collection > h3 {
+  font-family: var(--secondary-font);
+  font-size: 4rem;
+  color: #e27247;
+  margin-block: 2rem;
+}
 .intro-text {
   padding: 4rem 6rem;
   display: flex;
@@ -121,13 +127,13 @@ h1 {
 /* This is for image-block styling */
 /* ATTRIBUTE */
 #image-blocks{
-  column-count: 2;
+  column-count: 1;
 }
 
 li:has(.image-block) {
   position: relative;
   padding: .2rem;
-  width: 30vw;
+  width: 60vw;
 }
 
 .image-block {
@@ -156,6 +162,8 @@ color: #fff;
 display: flex;
 justify-content: center;
 align-items: center;
+padding: 1rem;
+text-align: center;
 
 }
 
@@ -204,11 +212,19 @@ figcaption {
 .video-embed-block {
   padding: 2rem;
   width: 60vw;
+  position: relative;
 }
 
 .video-embed-block > iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
+}
+.video-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
 }
 /* This is for styling for audio-block */
 .audio-block {
@@ -296,13 +312,20 @@ footer {
   align-items: center;
   padding: 2rem;
 }
+@media (width>=550px) {
+  #image-blocks{
+  column-count: 2;
+} 
+li:has(.image-block) {
+  width: 30vw;
+}
+}
+
 @media (width>=1024px) {
   .footer-top {
     justify-content: space-between;
     align-items: center;
     flex-direction: row;
   }
-  /* .intro-text{
-    padding: 4rem 10rem;
-} */
-}
+  }
+  

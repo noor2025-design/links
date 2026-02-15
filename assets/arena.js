@@ -25,7 +25,9 @@ let renderBlock = (blockData) => {
   // To start, a shared `ul` where we’ll insert all our blocks
   let channelBlocks = document.querySelector("#channel-blocks");
   let imageBlocks = document.querySelector("#image-blocks")
-
+  let videoBlocks = document.querySelector("#video-blocks")
+  let audioBlocks = document.querySelector("#audio-blocks")
+  let textBlocks = document.querySelector("#text-blocks")
   // Links!
   if (blockData.type == "Link") {
     // console.log(blockData);
@@ -37,7 +39,6 @@ let renderBlock = (blockData) => {
 
     let linkItem = `
 			<li class="link-block">
-				<p><em>Link</em></p>
 				<figure>
 					<picture>
 						<source media="(width < 500px)" srcset="${blockData.image.small.src_2x}">
@@ -54,7 +55,7 @@ let renderBlock = (blockData) => {
 			`;
 
     // And puts it into the page!
-    channelBlocks.insertAdjacentHTML("beforeend", linkItem);
+    textBlocks.insertAdjacentHTML("beforeend", linkItem);
 
     // More on template literals:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
@@ -91,7 +92,7 @@ let textItem =
 	</li>
 `
 
-    channelBlocks.insertAdjacentHTML("beforeend", textItem);
+    textBlocks.insertAdjacentHTML("beforeend", textItem);
     console.log("text-type",blockData);
   }
 
@@ -105,12 +106,11 @@ let textItem =
       // …still up to you, but we’ll give you the `video` element:
       let videoItem = `
 				<li>
-					<p><em>Video</em></p>
 					<video controls src="${blockData.attachment.url}"></video>
 				</li>
 				`;
 
-      channelBlocks.insertAdjacentHTML("beforeend", videoItem);
+      videoBlocks.insertAdjacentHTML("beforeend", videoItem);
 
       // More on `video`, like the `autoplay` attribute:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
@@ -121,10 +121,10 @@ let textItem =
       // …up to you!
       let pdfItem = `
       <li class="pdf-block">
-		<iframe src=${blockData.attachment.url }>		</iframe>	
+		<iframe src=${blockData.attachment.url}#toolbar=0&view=FitH></iframe>	
 	</li>
       `
-channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
+textBlocks.insertAdjacentHTML("beforeend", pdfItem);
       console.log("pdf-type", blockData);
     }
 
@@ -135,12 +135,11 @@ channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
       // …still up to you, but here’s an `audio` element:
       let audioItem = `
 				<li class="audio-block">
-					<p><em>Audio</em></p>
 					<audio controls src="${blockData.attachment.url}"></audio>
 				</li>
 				`;
 
-      channelBlocks.insertAdjacentHTML("beforeend", audioItem);
+      audioBlocks.insertAdjacentHTML("beforeend", audioItem);
 
       // More on`audio`:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
@@ -158,12 +157,13 @@ channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
       // …still up to you, but here’s an example `iframe` element:
       let linkedVideoItem = `
 				<li class="video-embed-block">
-					<p><em>Linked Video</em></p>
 					${blockData.embed.html}
+
+                     <img src=${blockData.image.src} class="video-overlay">
 				</li>
 				`;
 
-      channelBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
+      videoBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
       // More on `iframe`:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe 
@@ -179,12 +179,11 @@ channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
 
       let linkedAudioItem = `
 				<li class="audio-embed-block">
-					<p><em>Linked Audio</em></p>
 					${blockData.embed.html}
 				</li>
 				`;
 
-      channelBlocks.insertAdjacentHTML("beforeend", linkedAudioItem);
+      audioBlocks.insertAdjacentHTML("beforeend", linkedAudioItem);
 
       console.log("embed-audio-type", blockData);
     }
