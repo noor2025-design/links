@@ -119,15 +119,20 @@ h1 {
 }
 
 /* This is for image-block styling */
+/* ATTRIBUTE */
+#image-blocks{
+  column-count: 2;
+}
 
 li:has(.image-block) {
-  padding: 2rem;
-  width: 60vw;
+  position: relative;
+  padding: .2rem;
+  width: 30vw;
 }
 
 .image-block {
   width: 100%;
-  aspect-ratio: 1/1;
+  /* aspect-ratio: 1/1; */
   overflow: hidden;
   display: block;
 }
@@ -136,6 +141,26 @@ li:has(.image-block) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.image-overlay{
+position: absolute;
+top: 0;
+left: 0;
+background-color: #0000007a;
+height: 100%;
+width: 100%;
+opacity: 0;
+transition: opacity .2s;
+color: #fff;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.image-overlay:hover{
+  opacity: 1;
 }
 
 /* This is for link-block styling */

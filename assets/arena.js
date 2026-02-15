@@ -24,6 +24,7 @@ let renderBlock = (blockData) => {
 
   // To start, a shared `ul` where we’ll insert all our blocks
   let channelBlocks = document.querySelector("#channel-blocks");
+  let imageBlocks = document.querySelector("#image-blocks")
 
   // Links!
   if (blockData.type == "Link") {
@@ -62,7 +63,7 @@ let renderBlock = (blockData) => {
   // Images!
   else if (blockData.type == "Image") {
     // …up to you!
-    // console.log("image-type", blockData);
+    console.log("image-type", blockData);
 
     let imageItem = `
         <li>
@@ -71,11 +72,13 @@ let renderBlock = (blockData) => {
                 <source media="(width < 1000px)" srcset="${blockData.image.medium.src_2x}">
                 <img alt="${blockData.image.alt_text}" src="${blockData.image.large.src_2x}">
             </picture>
-        
+            <div class="image-overlay">
+            ${blockData.title}
+            </div>
         </li>
         `;
 
-    channelBlocks.insertAdjacentHTML("beforeend", imageItem);
+    imageBlocks.insertAdjacentHTML("beforeend", imageItem);
   }
 
   // Text!
@@ -150,6 +153,8 @@ channelBlocks.insertAdjacentHTML("beforeend", pdfItem);
 
     // Linked video!
     if (embedType.includes("video")) {
+        console.log("blockData", blockData);
+        
       // …still up to you, but here’s an example `iframe` element:
       let linkedVideoItem = `
 				<li class="video-embed-block">
@@ -239,3 +244,5 @@ fetchJson(
     });
   },
 );
+
+
