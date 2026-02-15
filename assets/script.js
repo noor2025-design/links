@@ -1,3 +1,5 @@
+
+// Attribution: 
 let scrollBar = document.getElementById("scroll-bar");
 
 window.addEventListener("scroll", () => {
