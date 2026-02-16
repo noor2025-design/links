@@ -8,6 +8,7 @@
 body {
   color: var(--color);
   background-color: var(--background-color);
+  /* background-image: url("../assets/images/hong-kong-background.jpg"); */
   font-family: "Space Mono", sans-serif;
 }
 nav{
@@ -130,6 +131,9 @@ h1 {
  CSS Grid was a bit more challenging to use with the number of image blocks that I have but hte column count property provides the same effect that I wanted to of a stacked image gallery. This property distributes a number of columns and flows based on height.   */
 #image-blocks{
   column-count: 1;
+  /* background: white;
+  padding: 20px; */
+  
 }
 
 li:has(.image-block) {
