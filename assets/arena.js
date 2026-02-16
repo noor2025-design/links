@@ -159,10 +159,10 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
 				<li class="video-embed-block">
 					${blockData.embed.html}
 
-                     <img src=${blockData.image.src} class="video-overlay">
-				</li>
-				`;
+                    </li>
+                    `;
 
+                    // <img src=${blockData.image.src} class="video-overlay">
       videoBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
       // More on `iframe`:

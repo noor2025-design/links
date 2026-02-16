@@ -219,13 +219,13 @@ figcaption {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
-.video-overlay{
+/* .video-overlay{
   position: absolute;
   top: 0;
   left: 0;
   width:100%;
   height: 100%;
-}
+} */
 /* This is for styling for audio-block */
 .audio-block {
   height: 100px;
