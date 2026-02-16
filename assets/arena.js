@@ -116,6 +116,10 @@ let textItem =
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
     }
 
+    
+//  I needed to embed the pdf because it was displaying as it does in the browser with a preview and black background space on both sides. I found an article: https://tinytip.co/tips/html-pdf-params/ that provided instructions on how to fix that. 
+// The iframe embeds the pdf like video/audio embeds on the page by using the js template literal to attach the pdf as a data object. The toolbar=0 hides the pdf view so there is no preview and the &view=FitH changes the view to fit horizontally which was the desired outcome. 
+
     // Uploaded PDFs!
     else if (contentType.includes("pdf")) {
       // …up to you!

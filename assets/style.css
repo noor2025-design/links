@@ -30,7 +30,8 @@ header{
   z-index: 10;
   padding: .25rem;
   /* border-bottom: 2px solid #412b2e; */
-  /* Attribution:  */
+  /* Box Shadow Generator using: https://html-css-js.com/css/generator/box-shadow/
+    This code adds a shadow effect to the sticky header element. The shadow has 4 values with first shifting horizontal and second value vertically and the thirds value adding a blur and opacity value along with the color chosen.  */
 -webkit-box-shadow: 0px -6px 22px 5px #000000; 
 box-shadow: 0px -6px 22px 5px #000000;
 }
@@ -125,7 +126,8 @@ h1 {
 }
 
 /* This is for image-block styling */
-/* ATTRIBUTE */
+/* I chose to use a masonry layout with the column-count property which I found from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7.
+ CSS Grid was a bit more challenging to use with the number of image blocks that I have but hte column count property provides the same effect that I wanted to of a stacked image gallery. This property distributes a number of columns and flows based on height.   */
 #image-blocks{
   column-count: 1;
 }
@@ -149,6 +151,8 @@ li:has(.image-block) {
   object-fit: cover;
 }
 
+/* I wanted to create an image overlay effect on my images which I found here: https://www.w3schools.com/howto/howto_css_overlay.asp */
+/* This effect creates an overlay for each image and the overlay is positioned absolute so that it sits on top of the image. The opacity is set at 0 which appears invisible and when a user hovers over than the transition property fades in and displays the text of the titles for each arena block. The top and left at 0 is where the overlay starts and the height and width is for the overlay to have the full size of the parent element.    */
 .image-overlay{
 position: absolute;
 top: 0;
