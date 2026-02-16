@@ -1,6 +1,6 @@
 :root {
   --color: #412b2e;
-  --background-color: #eddcbc;
+  --background-color: #EBE5CF;
   --primary-font: "space mono", sans-serif;
   --secondary-font: "Cedarville Cursive", sans-serif;
 }
@@ -44,7 +44,7 @@ height: 5px;
 #scroll-bar{
   height: 100%;
   width: 0%;
-  background-color: #e27247;
+  background-color: #FF2928;
 }
 
 .banner-video {
@@ -70,13 +70,13 @@ p:has(#channel-link) {
 h2 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #e27247;
+  color: #61ABB1;
   /* align-self: flex-start; */
 }
 .arena-collection > h3 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #e27247;
+  color: #61ABB1;
   margin-block: 2rem;
 }
 .intro-text {
@@ -113,7 +113,7 @@ h1 {
   /* top: 50%; */
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
-  color: #e27247;
+  color: #FF2928;
   text-align: center;
   padding: 3rem;
 }
@@ -298,7 +298,7 @@ footer {
   width: 100%;
   /* height: 40vh; */
   /* padding: ; */
-  background-color: #e27247;
+  background-color: #FF2928;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
