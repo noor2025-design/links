@@ -22,3 +22,10 @@ window.addEventListener("scroll", () => {
     // Using style property access the CSS of the scrollBar and affect the width property. The width chnages as the user scrolls down the page with the progress bar. 
     scrollBar.style.width = `${scrollPosition}%`
 })
+
+
+let imageBlocks=document.getElementById("image-blocks")
+let header=document.querySelector("header")
+console.log("header.innerHeight", header.height);
+
+imageBlocks.style.scrollMarginTop = `${header.height}px`
