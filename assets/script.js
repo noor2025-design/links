@@ -25,7 +25,13 @@ window.addEventListener("scroll", () => {
 
 
 let imageBlocks=document.getElementById("image-blocks")
+let videoBlocks=document.getElementById("video-blocks")
+let textBlocks=document.getElementById("text-blocks")
+let audioBlocks=document.getElementById("audio-blocks")
 let header=document.querySelector("header")
-console.log("header.innerHeight", header.height);
+// console.log("header.scrollHeight", header.scrollHeight);
 
-imageBlocks.style.scrollMarginTop = `${header.height}px`
+imageBlocks.style.scrollMarginTop = `${700}px`
+videoBlocks.style.scrollMarginTop = `${700}px`
+textBlocks.style.scrollMarginTop = `${700}px`
+audioBlocks.style.scrollMarginTop = `${700}px`
