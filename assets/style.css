@@ -150,6 +150,10 @@ h1 {
   padding: 20px; */
   
 }
+#video-blocks{
+  column-count: 2;
+
+}
 
 li:has(.image-block) {
   position: relative;
@@ -168,6 +172,10 @@ li:has(.image-block) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 1s ease;
+}
+#image-blocks li:hover .image-block img{
+  transform: scale(1.1);
 }
 
 /* I wanted to create an image overlay effect on my images which I found here: https://www.w3schools.com/howto/howto_css_overlay.asp */
@@ -224,7 +232,11 @@ li:has(video) {
 }
 
 video {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
 }
 figcaption {
   text-align: center;
@@ -234,21 +246,38 @@ figcaption {
 /* This is styling for video-embed-block */
 .video-embed-block {
   padding: 2rem;
-  width: 60vw;
+  width: 30vw;
   position: relative;
 }
 
-.video-embed-block > iframe {
+.video-frame{
+  position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
-/* .video-overlay{
+
+.video-frame > iframe {
   position: absolute;
   top: 0;
   left: 0;
   width:100%;
   height: 100%;
-} */
+}
+.video-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  opacity: 1;
+  object-fit: cover;
+  transition: opacity .2s ease;
+}
+.video-frame:hover .video-overlay{
+opacity: 0;
+pointer-events: none;
+}
 /* This is for styling for audio-block */
 .audio-block {
   height: 50px;
@@ -256,7 +285,7 @@ figcaption {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  margin-block: 3rem;
+  margin-block: 5rem;
 }
 .audio-block audio {
   width: 85%;
