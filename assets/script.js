@@ -23,7 +23,7 @@ window.addEventListener("scroll", () => {
     scrollBar.style.width = `${scrollPosition}%`
 })
 
-
+// Found this article from:https://www.geeksforgeeks.org/javascript/queryselector-vs-getelementbyid/. It explains that the differences between using querySelctor vs. getElementbyID so I sued document.getElementById to get the specific ids for each media-type block in the ul elements in the HTML to store as variables. Instead of hardcoding it, it allows js to dynamically fetch the media types from arena to sort in the right sections based on media type. 
 let imageBlocks=document.getElementById("image-blocks")
 let videoBlocks=document.getElementById("video-blocks")
 let textBlocks=document.getElementById("text-blocks")
@@ -31,6 +31,7 @@ let audioBlocks=document.getElementById("audio-blocks")
 let header=document.querySelector("header")
 // console.log("header.scrollHeight", header.scrollHeight);
 
+// I had an issue with my nav to each section where the page would scroll pass the header and directly into the content. With help from a tutor and W3 schools article on scroll-margin https://www.w3schools.com/cssref/css_pr_scroll-margin.php. I used js style property to set the scrollMarginTop on each content section. This adds 700px of space so that when a user clicks the nav link, it doesnt scroll past the header. 
 imageBlocks.style.scrollMarginTop = `${700}px`
 videoBlocks.style.scrollMarginTop = `${700}px`
 textBlocks.style.scrollMarginTop = `${700}px`

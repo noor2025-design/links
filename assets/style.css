@@ -4,7 +4,7 @@
   --primary-font: "space mono", sans-serif;
   --secondary-font: "Cedarville Cursive", sans-serif;
 }
-
+/* AI assisted for html element scroll-behavior from chatGPT on smooth scroll so that when a user clicks a nav link it scrolls smoothly than jumping to the section immediately. */
 html{
   scroll-behavior: smooth;
 }
@@ -29,7 +29,8 @@ nav ul li{
   cursor:pointer;
   font-size: .75rem;
 }
-
+/* I used this CSS :not psuedo-class syntax from https://www.w3schools.com/cssref/sel_not.php */
+/* I used this syntax to add a seperator after each nav link except the last one. The :not(:last-child) filters ot the last li so that it only appears between the links and not the final one. The parent is unaffected and targets the right li elements.  */
 nav ul li:not(:last-child)::after{
 content: "";
 width: 1.5px;

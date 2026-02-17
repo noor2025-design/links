@@ -218,6 +218,8 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
     }
   }
 };
+// Attributing to above conditional statements for linked audio.When arena pulled in content through the API, the behance link was incorrectly sorted into the linked audio section because it came through as a rich embed the same type as linked audio embeds. To fix this, I wrote two conditions: the first checks if the embed is a rich type but does not include behance in the url and if so treats it as audio. The second checks if the embed is a rich type and includes behance in the url. A tutor informed me that behance should go in the text section rather than the image section although it appears as an image because the behance link comes with text like a title and description and are not being read as images by the API.
+
 
 // A function to display the owner/collaborator info:
 let renderUser = (userData) => {
