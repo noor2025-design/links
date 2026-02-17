@@ -91,7 +91,7 @@ p:has(#channel-link) {
 h2 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #61ABB1;
+  color: #0000C0;
   /* align-self: flex-start; */
 }
 main{
@@ -109,7 +109,7 @@ main{
 .arena-collection > h3 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #61ABB1;
+  color: #0000C0;
   margin-block: 2rem;
 }
 .intro-text {
