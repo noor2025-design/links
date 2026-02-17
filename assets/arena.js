@@ -195,7 +195,26 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
 
       audioBlocks.insertAdjacentHTML("beforeend", linkedAudioItem);
 
-      console.log("embed-audio-type", blockData);
+    }
+    else if (embedType.includes("rich")&& blockData.source.url.includes("behance")){
+        console.log("embed-behance-type", blockData);
+    let behanceItem = `
+				<li class="link-block">
+				<figure>
+					<picture>
+						<source media="(width < 500px)" srcset="${blockData.image.small.src_2x}">
+						<source media="(width < 1000px)" srcset="${blockData.image.medium.src_2x}">
+						<img alt="${blockData.image.alt_text}" src="${blockData.image.large.src_2x}">
+					</picture>
+					<figcaption>
+						<h3>${blockData.title}</h3>
+						${blockData.description?.html}
+					</figcaption>
+				</figure>
+				<p><a href="${blockData.source.url}">See the original ↗</a></p>
+			</li>
+				`;
+                 textBlocks.insertAdjacentHTML("beforeend", behanceItem);
     }
   }
 };
