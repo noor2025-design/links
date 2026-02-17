@@ -103,16 +103,16 @@ let textItem =
 
     // Uploaded videos!
     if (contentType.includes("video")) {
-    //   console.log("video-type");
+      console.log("video-type", blockData);
       // …still up to you, but we’ll give you the `video` element:
       let videoItem = `
 				<li>
                 <div class="video-frame">
 					<video controls src="${blockData.attachment.url}"></video>
-                    <img src=${blockData.image.src} class="video-overlay">
                     </div>
-				</li>
-				`;
+                    </li>
+                    `;
+                    // <img src=${blockData.image.src} class="video-overlay">
 
       videoBlocks.insertAdjacentHTML("beforeend", videoItem);
 
@@ -165,11 +165,11 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
       // …still up to you, but here’s an example `iframe` element:
       let linkedVideoItem = `
 				<li class="video-embed-block">
-                <div class="video-frame">
-					${blockData.embed.html}
-                    <img src=${blockData.image.large.src} class="video-overlay">
+                    <div class="video-frame">
+                        ${blockData.embed.html}
+                        <img src=${blockData.image.large.src} class="video-overlay">
                     </div>
-                    </li>
+                </li>
                     `;
 
                     

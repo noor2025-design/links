@@ -21,7 +21,25 @@ nav ul{
 }
 
 nav ul li{
-  padding: 2rem;
+  padding: 2.5rem;
+  position: relative;
+  cursor:pointer;
+  font-size: .75rem;
+}
+
+nav ul li:not(:last-child)::after{
+content: "";
+width: 1.5px;
+height: 70%;
+background-color: #000000;
+position: absolute;
+right: 0;
+top: 50%;
+transform: translateY(-50%);
+}
+
+nav ul li:hover{
+  color:#FF2928;
 }
 
 header{
@@ -150,10 +168,7 @@ h1 {
   padding: 20px; */
   
 }
-#video-blocks{
-  column-count: 2;
 
-}
 
 li:has(.image-block) {
   position: relative;
@@ -225,10 +240,13 @@ figure img {
 }
 
 /* This is for video-block styling */
-
+#video-blocks{
+  column-count: 2;
+}
 li:has(video) {
   padding: 2rem;
-  width: 60vw;
+  width: 30vw;
+  box-sizing: border-box;
 }
 
 video {
@@ -379,6 +397,9 @@ li:has(.image-block) {
 h1{
   font-size: 3rem;
 }
+nav ul li{
+  font-size: 1rem;
+}
 }
 
 @media (width>=1024px) {
@@ -390,6 +411,8 @@ h1{
   h1{
   font-size: 5rem;
   }
-
+nav ul li{
+  font-size: 1.5rem;
+}
   }
   
