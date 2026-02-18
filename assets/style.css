@@ -29,8 +29,10 @@ nav ul li{
   cursor:pointer;
   font-size: .75rem;
 }
+/* I used this article to add the property cursor-pointer so that it changes the mouse cursor thats usually an arrow to a hand icon.  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/cursor */
+
 /* I used this CSS :not psuedo-class syntax from https://www.w3schools.com/cssref/sel_not.php */
-/* I used this syntax to add a seperator after each nav link except the last one. The :not(:last-child) filters ot the last li so that it only appears between the links and not the final one. The parent is unaffected and targets the right li elements.  */
+/* I used this syntax to add a seperator after each nav link except the last one. The :not(:last-child) filters to the last li so that it only appears between the links and not the final one. The parent is unaffected and targets the right li elements.  */
 nav ul li:not(:last-child)::after{
 content: "";
 width: 1.5px;
@@ -53,7 +55,7 @@ header{
   z-index: 10;
   padding: .25rem;
   /* border-bottom: 2px solid #412b2e; */
-  /* Box Shadow Generator using: https://html-css-js.com/css/generator/box-shadow/
+  /* Used Box Shadow Generator using: https://html-css-js.com/css/generator/box-shadow/
     This code adds a shadow effect to the sticky header element. The shadow has 4 values with first shifting horizontal and second value vertically and the thirds value adding a blur and opacity value along with the color chosen.  */
 -webkit-box-shadow: 0px -14px 22px 5px #000000; 
 box-shadow: 0px -14px 22px 5px #000000;
@@ -215,7 +217,6 @@ justify-content: center;
 align-items: center;
 padding: 1rem;
 text-align: center;
-
 }
 
 .image-overlay:hover{
@@ -223,7 +224,7 @@ text-align: center;
 }
 
 /* This is for link-block styling */
-/* :last-of-type select allows you to target the last occurence of an element within its container and not the entire page. */
+/* :last-of-type selector allows you to target the last occurence of an element within its container and not the entire page. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
 .link-block p:last-of-type {
   text-align: center;
@@ -233,11 +234,11 @@ figure {
   width: 60vw;
 }
 
-.image-wrapper {
+/* .image-wrapper {
   width: 100%;
   aspect-ratio: 1/1;
   overflow: hidden;
-}
+} */
 figure img {
   width: 100%;
   height: 100%;
@@ -301,6 +302,8 @@ figcaption {
 opacity: 0;
 pointer-events: none;
 }
+/* I used pointer-events property that I found on https://css-tricks.com/almanac/properties/p/pointer-events/.The poiter-events: none prevents the overlay from blocking clicks on the video.   */
+
 /* This is for styling for audio-block */
 .audio-block {
   height: 50px;
@@ -366,6 +369,7 @@ pointer-events: none;
 p:has(#channel-count) {
   margin-block: 2rem;
 }
+
 footer {
   width: 100%;
   /* height: 40vh; */
@@ -393,6 +397,7 @@ footer {
   align-items: center;
   padding: 2rem;
 }
+
 @media (width>=550px) {
   #image-blocks, #video-blocks{
   column-count: 2;
@@ -430,3 +435,4 @@ nav ul li{
 }
   }
   
+  /* I used the class reference >550px for mobile layout and other breakpoint was found in this article for larger screens https://penpot.app/blog/how-to-use-css-and-media-query-breakpoints-to-create-responsive-layouts/ */
