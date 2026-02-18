@@ -167,7 +167,7 @@ h1 {
 
 /* This is for image-block styling */
 /* I chose to use a masonry layout with the column-count property which I found from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7.
- CSS Grid was a bit more challenging to use with the number of image blocks that I have but hte column count property provides the same effect that I wanted to of a stacked image gallery. This property distributes a number of columns and flows based on height.   */
+ CSS Grid was a bit more challenging to use with the number of image blocks and different sections that I have but the column count property provides the same effect that I wanted to of a stacked image gallery. This property distributes a number of columns and flows based on height.   */
 #image-blocks{
   column-count: 1;
 
@@ -302,7 +302,7 @@ figcaption {
 opacity: 0;
 pointer-events: none;
 }
-/* I used pointer-events property that I found on https://css-tricks.com/almanac/properties/p/pointer-events/.The poiter-events: none prevents the overlay from blocking clicks on the video.   */
+/* Tutor helped me understand how to build a hover overlay effect to make it interactive. My understanding is that the overlay is positioned on top of the video and uses opacity transition to fade smoothly. When user hovers over the video-frame, the overlay becomes transparent and stops blocking interaction showing the video underneath. Also, I used pointer-events property that I found on https://css-tricks.com/almanac/properties/p/pointer-events/.The poiter-events: none prevents the overlay from blocking clicks on the video.   */
 
 /* This is for styling for audio-block */
 .audio-block {
