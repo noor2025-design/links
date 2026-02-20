@@ -11,9 +11,9 @@ let placeChannelInfo = (channelData) => {
 
 
   // Then set their content/attributes to our data:
-//   channelTitle.innerHTML = "HONG KONG";
+  channelTitle.innerHTML = "HONG KONG";
 
-  channelTitle.innerHTML = channelData.title;
+//   channelTitle.innerHTML = channelData.title;
   channelDescription.innerHTML = channelData.description.html;
   channelCount.innerHTML = channelData.counts.blocks;
   channelLink.href = `https://www.are.na/channel/${channelSlug}`;
