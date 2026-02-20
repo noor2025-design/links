@@ -1,8 +1,8 @@
 :root {
-  --color: #412b2e;
-  --background-color: #EBE5CF;
+  --color: #F6E3CB;
+  --background-color: #4F0803;
   --primary-font: "space mono", sans-serif;
-  --secondary-font: "Cedarville Cursive", sans-serif;
+  --secondary-font: "Bebas Neue", sans-serif;
 }
 /* AI assisted for html element scroll-behavior from chatGPT on smooth scroll so that when a user clicks a nav link it scrolls smoothly than jumping to the section immediately. */
 html{
@@ -37,7 +37,7 @@ nav ul li:not(:last-child)::after{
 content: "";
 width: 1.5px;
 height: 70%;
-background-color: #000000;
+background-color: #4C4B1E;
 position: absolute;
 right: 0;
 top: 50%;
@@ -45,7 +45,7 @@ transform: translateY(-50%);
 }
 
 nav ul li:hover{
-  color:#FF2928;
+  color:#C5D83F;
 }
 
 header{
@@ -68,7 +68,7 @@ height: 5px;
 #scroll-bar{
   height: 100%;
   width: 0%;
-  background-color: #FF2928;
+  background-color: #AA1F1F;
 }
 
 .banner-video {
@@ -94,7 +94,7 @@ p:has(#channel-link) {
 h2 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #0000C0;
+  color: #C5D83F;
   /* align-self: flex-start; */
 }
 main{
@@ -112,7 +112,7 @@ main{
 .arena-collection > h3 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #0000C0;
+  color: #C5D83F;
   margin-block: 2rem;
 }
 .intro-text {
@@ -145,13 +145,13 @@ background-color: black; */
   padding-bottom: 2rem;
 }
 h1 {
-  font-family: "Righteous", sans-serif;
+  font-family: "Dela Gothic One", sans-serif;
   font-size: 2rem;
   /* position: absolute; */
   /* top: 50%; */
   /* left: 50%; */
   /* transform: translate(-50%, -50%); */
-  color: #FF2928;
+  color: #AA1F1F;
   text-align: center;
   padding: 3rem;
 }
@@ -374,11 +374,11 @@ footer {
   width: 100%;
   /* height: 40vh; */
   /* padding: ; */
-  background-color: #0000C0;
+  background-color: #150C0C;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: var(--background-color);
+  color: var(--color);
 }
 .footer-top {
   display: flex;
@@ -390,6 +390,7 @@ footer {
 .footer-links {
   padding: 4rem 6rem;
   text-align: center;
+  color: #C5D83F;
 }
 .footer-bottom {
   display: flex;
@@ -428,7 +429,7 @@ nav ul li{
     flex-direction: row;
   }
   h1{
-  font-size: 5rem;
+  font-size: 8rem;
   }
 nav ul li{
   font-size: 1.5rem;
