@@ -54,6 +54,10 @@ header{
   background-color: var(--background-color);
   z-index: 10;
   padding: .25rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   /* border-bottom: 2px solid #412b2e; */
   /* Used Box Shadow Generator using: https://html-css-js.com/css/generator/box-shadow/
     This code adds a shadow effect to the sticky header element. The shadow has 4 values with first shifting horizontal and second value vertically and the thirds value adding a blur and opacity value along with the color chosen.  */
@@ -153,7 +157,7 @@ h1 {
   /* transform: translate(-50%, -50%); */
   color: #AA1F1F;
   text-align: center;
-  padding: 3rem;
+  padding-block: 1rem .25rem;
 }
 
 .arena-collection {
@@ -416,6 +420,13 @@ li:has(.image-block) {
 h1{
   font-size: 3rem;
 }
+
+.hong-kong-text {
+  font-family: "Noto Serif HK", serif;
+  font-weight: 400;
+  font-size: 3rem;
+  
+}
 nav ul li{
   font-size: 1rem;
 }
@@ -430,6 +441,7 @@ nav ul li{
   }
   h1{
   font-size: 8rem;
+  
   }
 nav ul li{
   font-size: 1.5rem;
