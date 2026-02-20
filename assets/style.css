@@ -419,13 +419,29 @@ li:has(.image-block) {
 }
 h1{
   font-size: 3rem;
+  line-height: 0.75;
 }
 
+.heading-text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heading-subtext{
+  display: flex;
+  align-items: center;
+  height: 5px;
+  width: auto;
+  background-color: #C5D83F;
+}
+.heading-line{
+
+}
 .hong-kong-text {
   font-family: "Noto Serif HK", serif;
   font-weight: 400;
   font-size: 3rem;
-  
+
 }
 nav ul li{
   font-size: 1rem;
@@ -440,7 +456,7 @@ nav ul li{
     flex-direction: row;
   }
   h1{
-  font-size: 8rem;
+  font-size: 6rem;
   
   }
 nav ul li{
