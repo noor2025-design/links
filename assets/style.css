@@ -1,5 +1,5 @@
 :root {
-  --color: #F6E3CB;
+  --secondary-background-color: #F6E3CB;
   --background-color: #4F0803;
   --primary-font: "space mono", sans-serif;
   --secondary-font: "Bebas Neue", sans-serif;
@@ -9,7 +9,7 @@ html{
   scroll-behavior: smooth;
 }
 body {
-  color: var(--color);
+  color: var(--secondary-background-color);
   background-color: var(--background-color);
   background-image: url("../assets/images/hong-kong-background.jpg");
   font-family: "Space Mono", sans-serif;
@@ -66,6 +66,34 @@ box-shadow: 0px -14px 22px 5px #000000;
   position: sticky;
   top: 0;
   display: none;
+  opacity: 0;
+}
+
+.hidden {
+  animation: slideFadeOut 1s ease-in-out forwards;
+}
+.visible {
+  animation: slideFadeIn 1s ease-in-out forwards;
+}
+@keyframes slideFadeIn {
+  from {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes slideFadeOut {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
 }
 
 #scroll-container{
@@ -108,8 +136,8 @@ main{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--background-color);
- width: 80%;
+  /* background-color: var(--background-color); */
+ width: 100%;
  margin-inline: auto;
 }
 /* .arena-collection{
@@ -123,13 +151,14 @@ main{
   margin-block: 2rem;
 }
 .intro-text {
-  padding: 4rem 6rem;
+  /* padding with 3 values affects top left/right bottom */
+  padding: 1rem 6rem 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* width: 80vw; */
-  /* background-color: var(--background-color); */
+  width: 100%;
+  background-color: var(--secondary-background-color);
 }
 #channel-description {
   max-width: 800px;
@@ -385,7 +414,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: var(--color);
+  color: var(--secondary-background-color)
 }
 .footer-top {
   display: flex;
