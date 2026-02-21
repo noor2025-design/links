@@ -36,7 +36,7 @@ nav ul li{
 nav ul li:not(:last-child)::after{
 content: "";
 width: 1.5px;
-height: 70%;
+height: 50%;
 background-color: #4C4B1E;
 position: absolute;
 right: 0;
@@ -425,6 +425,8 @@ li:has(.image-block) {
 h1{
   font-size: 3rem;
   line-height: 0.75;
+   text-shadow: 6px 2px 5px #C5D83F;
+   /*text shadow effect from https://www.w3schools.com/css/css3_shadows.asp */
 }
 
 .heading-text{
@@ -447,7 +449,7 @@ h1{
 .hong-kong-text {
   font-family: "Noto Serif HK", serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 4rem;
   white-space: nowrap;
   margin-inline: 1rem;
 
@@ -469,7 +471,7 @@ nav ul li{
   
   }
 nav ul li{
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
   }
   
