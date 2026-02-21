@@ -109,13 +109,21 @@ let textItem =
       console.log("video-type", blockData);
       // …still up to you, but we’ll give you the `video` element:
       let videoItem = `
-				<li>
-                <div class="video-frame">
-					<video controls src="${blockData.attachment.url}"></video>
+				<li class="video-attachment">
+                  <div class="video-frame">
+                    <img src=${blockData.image.src} class="video-overlay">
                     </div>
                     </li>
                     `;
-                    // <img src=${blockData.image.src} class="video-overlay">
+
+                //     let videoItem = `
+				// <li>
+                // <div class="video-frame">
+				// 	<video controls src="${blockData.attachment.url}"></video>
+                //     </div>
+                //     </li>
+                //     `;
+                   
 
       videoBlocks.insertAdjacentHTML("beforeend", videoItem);
 
@@ -169,12 +177,19 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
       let linkedVideoItem = `
 				<li class="video-embed-block">
                     <div class="video-frame">
-                        ${blockData.embed.html}
                         <img src=${blockData.image.large.src} class="video-overlay">
                     </div>
                 </li>
                     `;
 
+                //     let linkedVideoItem = `
+				// <li class="video-embed-block">
+                //     <div class="video-frame">
+                //         ${blockData.embed.html}
+                //         <img src=${blockData.image.large.src} class="video-overlay">
+                //     </div>
+                // </li>
+                //     `;
                     
       videoBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
