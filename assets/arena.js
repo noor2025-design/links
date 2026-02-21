@@ -74,9 +74,12 @@ let renderBlock = (blockData) => {
                 <source media="(width < 1000px)" srcset="${blockData.image.medium.src_2x}">
                 <img alt="${blockData.image.alt_text}" src="${blockData.image.large.src_2x}">
             </picture>
+            <div class="vintage-overlay"> 
+            </div>
             <div class="image-overlay">
             ${blockData.title}
             </div>
+            
         </li>
         `;
 

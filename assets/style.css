@@ -208,10 +208,12 @@ h1 {
 #image-blocks{
   column-count: 1;
 
+
   /* background: white;
   padding: 20px; */
   
 }
+/* https://dev.to/debadeepsen/vintage-photo-effect-with-css-16oj */
 
 
 li:has(.image-block) {
@@ -254,10 +256,25 @@ justify-content: center;
 align-items: center;
 padding: 1rem;
 text-align: center;
+z-index: 2;
 }
 
 .image-overlay:hover{
   opacity: 1;
+}
+
+.vintage-overlay{
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+z-index: 1;
+  background-image: 
+        radial-gradient(ellipse, #0000, #0007),
+        linear-gradient(0deg, #9725, #9725),
+        url(https://i.ibb.co/vJt5HSh/noisy-texture-300x300-o10-d10-c-a82851-t1.png);
+        filter: blur(0.05em) saturate(0.7) contrast(1.5) brightness(1.2);
 }
 
 /* This is for link-block styling */
