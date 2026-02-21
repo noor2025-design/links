@@ -129,7 +129,7 @@ p:has(#channel-link) {
 h2 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #C5D83F;
+  color: var(--background-color);
   /* align-self: flex-start; */
 }
 main{
@@ -159,6 +159,7 @@ main{
   flex-direction: column;
   width: 100%;
   background-color: var(--secondary-background-color);
+  color: #412b2e;
 }
 #channel-description {
   max-width: 800px;
@@ -463,18 +464,7 @@ h1{
   flex-direction: column;
   align-items: center;
 }
-.heading-subtext{
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
- 
-}
-.heading-line{
- height: 8px;
-  width: 50%;
-  /* background-color: #C5D83F; */
-}
+
 .hong-kong-text {
   font-family: "Noto Serif HK", serif;
   font-weight: 400;
