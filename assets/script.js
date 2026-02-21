@@ -36,3 +36,16 @@ imageBlocks.style.scrollMarginTop = `${700}px`
 videoBlocks.style.scrollMarginTop = `${700}px`
 textBlocks.style.scrollMarginTop = `${700}px`
 audioBlocks.style.scrollMarginTop = `${700}px`
+
+let stickyHeaderElement = document.querySelector(".sticky-header")
+let bannerVideoElement = document.querySelector(".banner-video")
+let sectionObserver = new IntersectionObserver(([entry])=> {
+
+	if (entry.isIntersecting) {
+		stickyHeaderElement.style.display = "none"
+	} else {
+		stickyHeaderElement.style.display = "block"
+	}
+})
+
+sectionObserver.observe(bannerVideoElement)

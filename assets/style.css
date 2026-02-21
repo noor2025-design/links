@@ -49,8 +49,6 @@ nav ul li:hover{
 }
 
 header{
-  position: sticky;
-  top: 0;
   background-color: var(--background-color);
   z-index: 10;
   padding: .25rem;
@@ -63,6 +61,11 @@ header{
     This code adds a shadow effect to the sticky header element. The shadow has 4 values with first shifting horizontal and second value vertically and the thirds value adding a blur and opacity value along with the color chosen.  */
 -webkit-box-shadow: 0px -14px 22px 5px #000000; 
 box-shadow: 0px -14px 22px 5px #000000;
+}
+.sticky-header{
+  position: sticky;
+  top: 0;
+  display: none;
 }
 
 #scroll-container{
@@ -401,6 +404,8 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  flex-direction: column;
+  text-align: center;
 }
 
 @media (width>=550px) {
@@ -430,17 +435,21 @@ h1{
 .heading-subtext{
   display: flex;
   align-items: center;
-  height: 5px;
-  width: auto;
-  background-color: #C5D83F;
+  width: 100%;
+  justify-content: space-between;
+ 
 }
 .heading-line{
-
+ height: 8px;
+  width: 50%;
+  background-color: #C5D83F;
 }
 .hong-kong-text {
   font-family: "Noto Serif HK", serif;
   font-weight: 400;
   font-size: 3rem;
+  white-space: nowrap;
+  margin-inline: 1rem;
 
 }
 nav ul li{
