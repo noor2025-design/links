@@ -442,7 +442,7 @@ h1{
 .heading-line{
  height: 8px;
   width: 50%;
-  background-color: #C5D83F;
+  /* background-color: #C5D83F; */
 }
 .hong-kong-text {
   font-family: "Noto Serif HK", serif;
