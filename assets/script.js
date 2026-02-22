@@ -50,3 +50,5 @@ let sectionObserver = new IntersectionObserver(([entry]) => {
 });
 
 sectionObserver.observe(bannerVideoElement);
+
+// Attribute for settimeout and classlist.replace
