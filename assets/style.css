@@ -285,7 +285,7 @@ li:has(.image-block) {
   background-image:
     radial-gradient(ellipse, #0000, #0007), linear-gradient(0deg, #9725, #9725),
     url(https://i.ibb.co/vJt5HSh/noisy-texture-300x300-o10-d10-c-a82851-t1.png);
-  filter: blur(0.05em) saturate(0.7) contrast(1.5) brightness(1.2);
+  filter: blur(0.05em) saturate(0.2) contrast(1.5) brightness(1.5);
 }
 
 /* This is for link-block styling */
