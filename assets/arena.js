@@ -107,14 +107,14 @@ let renderBlock = (blockData) => {
     if (contentType.includes("video")) {
       console.log("video-type", blockData);
       let isScreeningContainerEmpty =
-        document.querySelector(".screening-video-container").children.length ===
+       screeningVideoContainer.children.length ===
         0;
       console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
 
       if (isScreeningContainerEmpty) {
         let videoItem = `
 			<p>${blockData.title}</p>
-                <div class="video-frame">
+                <div class="screening-video-frame">
 					<video controls src="${blockData.attachment.url}"></video>
                     </div>
                    
@@ -180,12 +180,13 @@ let renderBlock = (blockData) => {
     if (embedType.includes("video")) {
       console.log("blockData", blockData);
       let isScreeningContainerEmpty =
-        document.querySelector(".screening-video-container").children.length ===
+       screeningVideoContainer.children.length ===
         0;
+         console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
       if (isScreeningContainerEmpty) {
          let linkedVideoItem = `
 				<p>${blockData.title}</p>
-                    <div class="video-frame">
+                    <div class="screening-video-frame">
                         ${blockData.embed.html}
                         <img src=${blockData.image.large.src} class="video-overlay">
                     </div>
@@ -206,7 +207,6 @@ let renderBlock = (blockData) => {
       }
       // …still up to you, but here’s an example `iframe` element:
 
-      videoBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
       // More on `iframe`:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe

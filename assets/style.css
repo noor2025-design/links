@@ -342,6 +342,11 @@ figcaption {
   position: relative;
 }
 
+.screening-video-frame{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
 .video-frame{
   position: relative;
   width: 100%;
