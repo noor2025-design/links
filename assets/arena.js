@@ -9,11 +9,10 @@ let placeChannelInfo = (channelData) => {
   let channelCount = document.querySelector("#channel-count");
   let channelLink = document.querySelector("#channel-link");
 
-
   // Then set their content/attributes to our data:
   channelTitle.innerHTML = "HONG KONG";
 
-//   channelTitle.innerHTML = channelData.title;
+  //   channelTitle.innerHTML = channelData.title;
   channelDescription.innerHTML = channelData.description.html;
   channelCount.innerHTML = channelData.counts.blocks;
   channelLink.href = `https://www.are.na/channel/${channelSlug}`;
@@ -21,18 +20,19 @@ let placeChannelInfo = (channelData) => {
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (blockData) => {
-//   console.log(blockData.type);
+  //   console.log(blockData.type);
 
   // To start, a shared `ul` where we’ll insert all our blocks
   let channelBlocks = document.querySelector("#channel-blocks");
-  let imageBlocks = document.querySelector("#image-blocks")
-  let videoBlocks = document.querySelector("#video-blocks")
-  let audioBlocks = document.querySelector("#audio-blocks")
-  let textBlocks = document.querySelector("#text-blocks")
+  let imageBlocks = document.querySelector("#image-blocks");
+  let videoBlocks = document.querySelector("#video-blocks");
+  let screeningVideoContainer = document.querySelector(".screening-video-container")
+  let audioBlocks = document.querySelector("#audio-blocks");
+  let textBlocks = document.querySelector("#text-blocks");
   // Links!
   if (blockData.type == "Link") {
     // console.log(blockData);
-    
+
     // Declares a “template literal” of the dynamic HTML we want.
     // One of the arena blocks that the owner of the channel created did not have a description so the console had an error of "null" so to prevent this error I had to add a "?" called optional chaining operator.
     // I pulled the syntax from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining.
@@ -89,15 +89,14 @@ let renderBlock = (blockData) => {
   // Text!
   else if (blockData.type == "Text") {
     // …up to you!
-let textItem = 
-`
+    let textItem = `
 <li class="text-block">
 		${blockData.content.html}
 	</li>
-`
+`;
 
     textBlocks.insertAdjacentHTML("beforeend", textItem);
-    console.log("text-type",blockData);
+    console.log("text-type", blockData);
   }
 
   // Uploaded (not linked) media…
@@ -107,33 +106,41 @@ let textItem =
     // Uploaded videos!
     if (contentType.includes("video")) {
       console.log("video-type", blockData);
-      // …still up to you, but we’ll give you the `video` element:
-      let videoItem = `
-				<li class="video-attachment">
-                  <div class="video-frame">
-                    <img src=${blockData.image.src} class="video-overlay">
+      let isScreeningContainerEmpty =
+        document.querySelector(".screening-video-container").children.length ===
+        0;
+      console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
+
+      if (isScreeningContainerEmpty) {
+        let videoItem = `
+			<p>${blockData.title}</p>
+                <div class="video-frame">
+					<video controls src="${blockData.attachment.url}"></video>
+                    </div>
+                   
+                    `;
+        screeningVideoContainer.insertAdjacentHTML("beforeend", videoItem);
+      } else {
+        let videoItem = `
+				<li>
+                <div class="video-frame">
+					<video controls src="${blockData.attachment.url}"></video>
                     </div>
                     </li>
                     `;
 
-                //     let videoItem = `
-				// <li>
-                // <div class="video-frame">
-				// 	<video controls src="${blockData.attachment.url}"></video>
-                //     </div>
-                //     </li>
-                //     `;
-                   
+        videoBlocks.insertAdjacentHTML("beforeend", videoItem);
+      }
+      // …still up to you, but we’ll give you the `video` element:
 
-      videoBlocks.insertAdjacentHTML("beforeend", videoItem);
+      
 
       // More on `video`, like the `autoplay` attribute:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
     }
 
-
-//  I needed to embed the pdf because it was displaying as it does in the browser with a preview and black background space on both sides. I found an article: https://tinytip.co/tips/html-pdf-params/ that provided instructions on how to fix that. 
-// The iframe embeds the pdf like video/audio embeds on the page by using the js template literal to attach the pdf as a data object. The toolbar=0 hides the pdf view so there is no preview and the &view=FitH changes the view to fit horizontally which was the desired outcome. 
+    //  I needed to embed the pdf because it was displaying as it does in the browser with a preview and black background space on both sides. I found an article: https://tinytip.co/tips/html-pdf-params/ that provided instructions on how to fix that.
+    // The iframe embeds the pdf like video/audio embeds on the page by using the js template literal to attach the pdf as a data object. The toolbar=0 hides the pdf view so there is no preview and the &view=FitH changes the view to fit horizontally which was the desired outcome.
 
     // Uploaded PDFs!
     else if (contentType.includes("pdf")) {
@@ -142,15 +149,15 @@ let textItem =
       <li class="pdf-block">
 		<iframe src=${blockData.attachment.url}#toolbar=0&view=FitH></iframe>	
 	</li>
-      `
-textBlocks.insertAdjacentHTML("beforeend", pdfItem);
+      `;
+      textBlocks.insertAdjacentHTML("beforeend", pdfItem);
       console.log("pdf-type", blockData);
     }
 
     // Uploaded audio!
     else if (contentType.includes("audio")) {
-      console.log("audio-type",blockData);
-    
+      console.log("audio-type", blockData);
+
       // …still up to you, but here’s an `audio` element:
       let audioItem = `
 				<li class="audio-block">
@@ -171,38 +178,47 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
 
     // Linked video!
     if (embedType.includes("video")) {
-        console.log("blockData", blockData);
-        
-      // …still up to you, but here’s an example `iframe` element:
-      let linkedVideoItem = `
+      console.log("blockData", blockData);
+      let isScreeningContainerEmpty =
+        document.querySelector(".screening-video-container").children.length ===
+        0;
+      if (isScreeningContainerEmpty) {
+         let linkedVideoItem = `
+				<p>${blockData.title}</p>
+                    <div class="video-frame">
+                        ${blockData.embed.html}
+                        <img src=${blockData.image.large.src} class="video-overlay">
+                    </div>
+                
+                    `;
+         screeningVideoContainer.insertAdjacentHTML("beforeend", linkedVideoItem);
+      } else {
+        let linkedVideoItem = `
 				<li class="video-embed-block">
                     <div class="video-frame">
+                        ${blockData.embed.html}
                         <img src=${blockData.image.large.src} class="video-overlay">
                     </div>
                 </li>
                     `;
 
-                //     let linkedVideoItem = `
-				// <li class="video-embed-block">
-                //     <div class="video-frame">
-                //         ${blockData.embed.html}
-                //         <img src=${blockData.image.large.src} class="video-overlay">
-                //     </div>
-                // </li>
-                //     `;
-                    
+        videoBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
+      }
+      // …still up to you, but here’s an example `iframe` element:
+
       videoBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
 
       // More on `iframe`:
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe 
-    } 
+      // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+    }
 
-    // There is an issue where an arena block is a image gallery from behance created by the owner of the channel that is being pulled in as linked audio instead of images but displayed as linked audio on the page. I learned from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean that a boolean expression checks for two conditions in this case it would be rich embed type and not behance using the && "AND" operator and ! to not include behance until I figure out how to solve this issue. 
+    // There is an issue where an arena block is a image gallery from behance created by the owner of the channel that is being pulled in as linked audio instead of images but displayed as linked audio on the page. I learned from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean that a boolean expression checks for two conditions in this case it would be rich embed type and not behance using the && "AND" operator and ! to not include behance until I figure out how to solve this issue.
 
     // Linked audio!
-    
-    else if (embedType.includes("rich")&& !blockData.source.url.includes("behance")) {
-
+    else if (
+      embedType.includes("rich") &&
+      !blockData.source.url.includes("behance")
+    ) {
       // …up to you!
 
       let linkedAudioItem = `
@@ -212,11 +228,12 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
 				`;
 
       audioBlocks.insertAdjacentHTML("beforeend", linkedAudioItem);
-
-    }
-    else if (embedType.includes("rich")&& blockData.source.url.includes("behance")){
-        console.log("embed-behance-type", blockData);
-    let behanceItem = `
+    } else if (
+      embedType.includes("rich") &&
+      blockData.source.url.includes("behance")
+    ) {
+      console.log("embed-behance-type", blockData);
+      let behanceItem = `
 				<li class="link-block">
 				<figure>
 					<picture>
@@ -232,12 +249,11 @@ textBlocks.insertAdjacentHTML("beforeend", pdfItem);
 				<p><a href="${blockData.source.url}">See the original ↗</a></p>
 			</li>
 				`;
-                 textBlocks.insertAdjacentHTML("beforeend", behanceItem);
+      textBlocks.insertAdjacentHTML("beforeend", behanceItem);
     }
   }
 };
 // Attributing to above conditional statements for linked audio.When arena pulled in content through the API, the behance link was incorrectly sorted into the linked audio section because it came through as a rich embed the same type as linked audio embeds. To fix this, I wrote two conditions: the first checks if the embed is a rich type but does not include behance in the url and if so treats it as audio. The second checks if the embed is a rich type and includes behance in the url. A tutor informed me that behance should go in the text section rather than the image section although it appears as an image because the behance link comes with text like a title and description and are not being read as images by the API.
-
 
 // A function to display the owner/collaborator info:
 let renderUser = (userData) => {
@@ -292,5 +308,3 @@ fetchJson(
     });
   },
 );
-
-
