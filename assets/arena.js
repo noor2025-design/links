@@ -29,6 +29,7 @@ let renderBlock = (blockData) => {
   let screeningVideoContainer = document.querySelector(".screening-video-container")
   let audioBlocks = document.querySelector("#audio-blocks");
   let textBlocks = document.querySelector("#text-blocks");
+  let articleBlocks = document.querySelector("#article-blocks");
   // Links!
   if (blockData.type == "Link") {
     // console.log(blockData);
@@ -56,7 +57,7 @@ let renderBlock = (blockData) => {
 			`;
 
     // And puts it into the page!
-    textBlocks.insertAdjacentHTML("beforeend", linkItem);
+    articleBlocks.insertAdjacentHTML("beforeend", linkItem);
 
     // More on template literals:
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals

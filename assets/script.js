@@ -36,8 +36,12 @@ audioBlocks.style.scrollMarginTop = `${700}px`;
 
 let stickyHeaderElement = document.querySelector(".sticky-header");
 let bannerVideoElement = document.querySelector(".banner-video");
-
+let isFirstTrigger = true
 let sectionObserver = new IntersectionObserver(([entry]) => {
+if (isFirstTrigger) {
+    isFirstTrigger = false
+    return
+}
   if (entry.isIntersecting) {
     stickyHeaderElement.classList.replace("visible", "hidden");
     setTimeout(() => {

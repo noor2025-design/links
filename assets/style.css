@@ -1,6 +1,6 @@
 :root {
   --secondary-background-color: #f6e3cb;
-  --background-color: #4f0803;
+  --background-color: #4f0803e2;
   --primary-font: "space mono", sans-serif;
   --secondary-font: "Bebas Neue", sans-serif;
 }
@@ -51,7 +51,7 @@ nav ul li:hover {
 header {
   background-color: var(--background-color);
   z-index: 10;
-  padding: 0.25rem;
+  padding: 1.25rem 0.25rem 0.25rem;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -222,9 +222,6 @@ h1 {
 #image-blocks {
   column-count: 1;
   padding-block: 2rem;
-
-  /* background: white;
-  padding: 20px; */
 }
 
 
@@ -292,21 +289,24 @@ li:has(.image-block) {
 }
 
 /* This is for link-block styling */
+#article-blocks{
+  column-count: 1;
+  padding-block: 2rem;
+}
 /* :last-of-type selector allows you to target the last occurence of an element within its container and not the entire page. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
 .link-block p:last-of-type {
   text-align: center;
 }
-figure {
+.link-block > figure {
   padding: 2rem;
   width: 60vw;
 }
 
-/* .image-wrapper {
-  width: 100%;
-  aspect-ratio: 1/1;
-  overflow: hidden;
-} */
+.link-block picture{
+width: 70%;
+
+}
 figure img {
   width: 100%;
   height: 100%;
@@ -456,6 +456,8 @@ figcaption {
   height: 100%;
 }
 
+
+
 /* Styling for text-block */
 .text-block {
   padding: 2rem;
@@ -515,6 +517,13 @@ footer {
   #video-blocks {
     column-count: 2;
   }
+  #article-blocks{
+  column-count: 2;
+}
+figure {
+  padding: 2rem;
+  width: 30vw;
+}
   li:has(video) {
     width: 30vw;
   }
