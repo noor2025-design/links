@@ -29,6 +29,12 @@ nav ul li {
   cursor: pointer;
   font-size: 0.75rem;
 }
+  .cantonese-text {
+    font-family: "Noto Serif HK", serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    white-space: nowrap;
+  }
 /* I used this article to add the property cursor-pointer so that it changes the mouse cursor thats usually an arrow to a hand icon.  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/cursor */
 
 /* I used this CSS :not psuedo-class syntax from https://www.w3schools.com/cssref/sel_not.php */
@@ -193,6 +199,8 @@ h1 {
   color: #aa1f1f;
   text-align: center;
   padding-block: 1rem 0.25rem;
+   text-shadow: 6px 2px 5px #c5d83f;
+    /*text shadow effect from https://www.w3schools.com/css/css3_shadows.asp */
 }
 
 .arena-collection {
@@ -547,22 +555,17 @@ footer {
 }
 
 @media (width>=550px) {
-  #image-blocks,
-  #article-blocks {
+  #image-blocks
+   {
     column-count: 2;
-  }
-
-  .link-block > figure {
-    padding: 2rem;
-    width: 30vw;
   }
  
  
   h1 {
     font-size: 3rem;
     line-height: 0.75;
-    text-shadow: 6px 2px 5px #c5d83f;
-    /*text shadow effect from https://www.w3schools.com/css/css3_shadows.asp */
+    
+   
   }
 
   .heading-text {
@@ -572,10 +575,8 @@ footer {
   }
 
   .cantonese-text {
-    font-family: "Noto Serif HK", serif;
     font-weight: 400;
     font-size: 4rem;
-    white-space: nowrap;
   }
   nav ul li {
     font-size: 1rem;
@@ -600,12 +601,7 @@ li:has(video),
  .video-embed-block  {
   width: 60vw;
  }
-.pdf-block,
-.text-block,
-.link-block > figure {
-  padding: 2rem;
-  width: 60vw;
-}
+
 
 }
 
@@ -617,6 +613,7 @@ li:has(video),
   }
   h1 {
     font-size: 6rem;
+    
   }
   nav ul li {
     font-size: 1rem;
@@ -674,7 +671,7 @@ li:has(video),
   width: 35vw;
  }
    
-  #video-blocks {
+  #video-blocks, #article-blocks {
     column-count: 2;
   }
    .audio-embed-block {
@@ -686,6 +683,12 @@ li:has(video),
  .pdf-block > iframe {
   width: 80%;
   height: 100%;
+}
+.pdf-block,
+.text-block,
+.link-block > figure {
+  padding: 2rem;
+  width: 30vw;
 }
 
 }
