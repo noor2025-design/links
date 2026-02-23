@@ -304,10 +304,11 @@ li:has(.image-block) {
 }
 
 .link-block picture{
-width: 70%;
-
+width: 50%;
+display: block;
 }
-figure img {
+
+.link-block img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -520,7 +521,7 @@ footer {
   #article-blocks{
   column-count: 2;
 }
-figure {
+.link-block > figure {
   padding: 2rem;
   width: 30vw;
 }
