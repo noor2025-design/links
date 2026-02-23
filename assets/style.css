@@ -24,7 +24,7 @@ nav ul {
 }
 
 nav ul li {
-  padding: 2.5rem;
+  padding: 1.5rem;
   position: relative;
   cursor: pointer;
   font-size: 0.75rem;
@@ -143,10 +143,7 @@ main {
   width: 100%;
   margin-inline: auto;
 }
-/* .arena-collection{
-  background-color: var(--background-color);
-  padding: 2rem;
-} */
+
 .block-background > h3 {
   font-family: var(--secondary-font);
   font-size: 4rem;
@@ -157,7 +154,7 @@ main {
 
 .intro-text {
   /* padding with 3 values affects top left/right bottom */
-  padding: 1rem 6rem 4rem;
+  padding: 1rem 3rem 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,9 +165,9 @@ main {
 }
 #channel-description {
   max-width: 800px;
-  font-size: 1.5rem;
+  font-size: .9rem;
   position: relative;
-  padding-block: 2rem;
+  padding-block: 1rem;
 }
 #channel-description::after {
   content: "";
@@ -207,24 +204,28 @@ h1 {
 
 .block-background {
   background-color: var(--background-color);
-  width: 80vw;
+  width: 90vw;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-block: 2rem;
-}
-#channel-blocks > li {
-  margin-block: 2rem;
+  padding-block: 1.25rem;
 }
 
-/* This is for image-block styling */
-/* I chose to use a masonry layout with the column-count property which I found from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7.
- CSS Grid was a bit more challenging to use with the number of image blocks and different sections that I have but the column count property provides the same effect that I wanted to of a stacked image gallery. This property distributes a number of columns and flows based on height.   */
-#image-blocks {
+/* General Block Styling */
+#image-blocks,
+#article-blocks {
   column-count: 1;
   padding-block: 2rem;
 }
-
+.pdf-block,
+.text-block,
+.link-block > figure {
+  padding: 2rem;
+  width: 60vw;
+}
+/* This is for image-block styling */
+/* I chose to use a masonry layout with the column-count property which I found from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7.
+ CSS Grid was a bit more challenging to use with the number of image blocks and different sections that I have but the column count property provides the same effect that I wanted to of a stacked image gallery. This property distributes a number of columns and flows based on height.   */
 
 li:has(.image-block) {
   position: relative;
@@ -268,7 +269,6 @@ li:has(.image-block) {
   align-items: center;
   text-align: center;
   z-index: 2;
-
 }
 
 .image-overlay:hover {
@@ -289,14 +289,11 @@ li:has(.image-block) {
 }
 
 /* This is for link-block styling */
-#article-blocks{
-  column-count: 1;
-  padding-block: 2rem;
-}
-.link-block{
-   break-inside: avoid;
-   height: 75vh;
-   margin-bottom: 3rem;
+
+.link-block {
+  break-inside: avoid;
+  height: 75vh;
+  margin-bottom: 3rem;
 }
 /* :last-of-type selector allows you to target the last occurence of an element within its container and not the entire page. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
@@ -304,19 +301,16 @@ li:has(.image-block) {
   text-align: center;
 }
 .link-block > figure {
-  padding: 2rem;
-  width: 60vw;
   display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.link-block picture{
-width: 80%;
-display: block;
-overflow: hidden;
-
+.link-block picture {
+  width: 80%;
+  display: block;
+  overflow: hidden;
 }
 
 .link-block img {
@@ -337,7 +331,7 @@ figcaption {
   padding-block: 1rem;
 }
 
-figcaption > p{
+figcaption > p {
   padding-block: 1rem;
 }
 
@@ -346,7 +340,7 @@ figcaption > p{
   column-count: 1;
 }
 .video-gallery {
-padding: 2rem;
+  padding: 2rem;
 }
 /* This is the Now showing element */
 .video-gallery p {
@@ -356,20 +350,20 @@ padding: 2rem;
   position: relative;
 }
 .video-gallery p::after {
- content: "";
+  content: "";
   width: 100%;
   height: 2px;
   background-color: #c5d83f;
   position: absolute;
   right: -10px;
   top: 50%;
-  transform: translate(100%,-50%);
+  transform: translate(100%, -50%);
 }
 li:has(video) {
   /* padding: 2rem; */
   width: 80vw;
   box-sizing: border-box;
-   margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 video {
@@ -400,7 +394,7 @@ video {
   align-items: center;
   flex-direction: column;
 }
-.now-screening-text{
+.now-screening-text {
   height: auto;
 }
 .screening-header > h4 {
@@ -494,8 +488,6 @@ video {
 
 /* This is styling for pdf-block */
 .pdf-block {
-  padding: 2rem;
-  width: 60vw;
   height: 500px;
   display: flex;
   justify-content: center;
@@ -504,14 +496,6 @@ video {
 .pdf-block > iframe {
   width: 80%;
   height: 100%;
-}
-
-
-
-/* Styling for text-block */
-.text-block {
-  padding: 2rem;
-  width: 60vw;
 }
 
 /* :first-of-type select allows you to target the first occurence of an element within its container and not the entire page. */
@@ -547,14 +531,13 @@ footer {
   align-items: center;
   height: 100%;
   flex-direction: column-reverse;
-
 }
 .footer-links {
   padding: 4rem 6rem;
   text-align: center;
   color: #c5d83f;
 }
-.back-to-top{
+.back-to-top {
   cursor: pointer;
 }
 .footer-bottom {
@@ -568,25 +551,22 @@ footer {
 
 @media (width>=550px) {
   #image-blocks,
-  #video-blocks {
+  #video-blocks,
+  #article-blocks {
     column-count: 2;
   }
-  #article-blocks{
-  column-count: 2;
-}
-.link-block > figure {
-  padding: 2rem;
-  width: 30vw;
-}
+
+  .link-block > figure {
+    padding: 2rem;
+    width: 30vw;
+  }
   li:has(video) {
     width: 30vw;
   }
   .video-embed-block {
     width: 30vw;
   }
-  li:has(.image-block) {
-    width: 30vw;
-  }
+ 
   h1 {
     font-size: 3rem;
     line-height: 0.75;
@@ -608,10 +588,23 @@ footer {
   }
   nav ul li {
     font-size: 1rem;
+    padding: 2.5rem;
   }
-
- 
-
+  #channel-description {
+  font-size: 1.25rem;
+  padding-block: 2rem;
+}
+.intro-text {
+  /* padding with 3 values affects top left/right bottom */
+  padding: 1rem 6rem 4rem;
+}
+.block-background {
+  width: 85vw;
+  padding-block: 1.5rem;
+}
+li:has(.image-block) {
+  width: 35vw;
+}
 }
 
 @media (width>=1024px) {
@@ -626,7 +619,7 @@ footer {
   nav ul li {
     font-size: 1rem;
   }
-   .screening-container {
+  .screening-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -642,12 +635,12 @@ footer {
     width: 40%;
     height: 100%;
   }
-  .now-screening-text{
- height: 50%;
- display: flex;
- justify-content: center;
- align-items: center;
-}
+  .now-screening-text {
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .screening-header > h4 {
     font-size: 2rem;
     margin-block: 0;
@@ -655,14 +648,25 @@ footer {
     padding: 2rem;
   }
 
- .now-screening-text > p {
+  .now-screening-text > p {
     font-size: 1.5rem;
-   
   }
   .screening-video-container {
     width: 50%;
     margin-block: 2rem;
   }
+  #channel-description {
+  
+  font-size: 1.5rem;
+  padding-block: 2rem;
+}
+.block-background {
+  width: 80vw;
+  padding-block: 2rem;
+}
+li:has(.image-block) {
+  width: 30vw;
+}
 }
 
 /* I used the class reference >550px for mobile layout and other breakpoint was found in this article for larger screens https://penpot.app/blog/how-to-use-css-and-media-query-breakpoints-to-create-responsive-layouts/ */
