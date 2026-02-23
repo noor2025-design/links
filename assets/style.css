@@ -37,7 +37,7 @@ nav ul li:not(:last-child)::after {
   content: "";
   width: 1.5px;
   height: 50%;
-  background-color: #4c4b1e;
+  background-color: #c6d83fa5;
   position: absolute;
   right: 0;
   top: 50%;
@@ -68,6 +68,7 @@ header {
   display: none;
   opacity: 0;
   width: 100%;
+  padding: 0.25rem;
 }
 
 /* Attribute for keyframeanimations */
@@ -106,7 +107,7 @@ header {
 #scroll-bar {
   height: 100%;
   width: 0%;
-  background-color: #aa1f1f;
+  background-color: #c5d83f;
 }
 
 .banner-video {
@@ -227,7 +228,6 @@ h1 {
 
 li:has(.image-block) {
   position: relative;
-  padding: 0.2rem;
   width: 60vw;
   margin-bottom: 1rem;
 }
@@ -295,7 +295,8 @@ li:has(.image-block) {
 }
 .link-block{
    break-inside: avoid;
-   height: 60vh;
+   height: 75vh;
+   margin-bottom: 3rem;
 }
 /* :last-of-type selector allows you to target the last occurence of an element within its container and not the entire page. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
@@ -312,7 +313,7 @@ align-items: center;
 }
 
 .link-block picture{
-width: 60%;
+width: 80%;
 display: block;
 }
 
@@ -322,14 +323,13 @@ display: block;
   object-fit: cover;
 }
 .link-block h3 {
-  padding: 2rem;
+  padding: 2rem 2rem 1rem;
   text-align: center;
 }
 figcaption {
   text-align: center;
-  padding: 1rem;
   overflow-y: auto;
-  height: 100px;
+  height: 150px;
   scrollbar-width: none;
   padding-block: 1rem;
 }
@@ -436,16 +436,18 @@ video {
 
 /* This is for styling for audio-block */
 .audio-block {
-  height: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   margin-block: 5rem;
 }
+.audio-block p {
+  padding: 1rem;
+}
 .audio-block audio {
   width: 85%;
-  height: 100%;
+  height: 50px;
 }
 
 /* This is for styling audio-embed-block */
@@ -470,10 +472,12 @@ video {
   padding: 2rem;
   width: 60vw;
   height: 500px;
+  display: flex;
+  justify-content: center;
 }
 
 .pdf-block > iframe {
-  width: 100%;
+  width: 80%;
   height: 100%;
 }
 
@@ -523,6 +527,9 @@ footer {
   padding: 4rem 6rem;
   text-align: center;
   color: #c5d83f;
+}
+.back-to-top{
+  cursor: pointer;
 }
 .footer-bottom {
   display: flex;

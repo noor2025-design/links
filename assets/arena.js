@@ -165,6 +165,7 @@ let renderBlock = (blockData) => {
       // …still up to you, but here’s an `audio` element:
       let audioItem = `
 				<li class="audio-block">
+                <p>${blockData.title}</p>
 					<audio controls src="${blockData.attachment.url}"></audio>
 				</li>
 				`;
