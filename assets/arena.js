@@ -26,19 +26,25 @@ let renderBlock = (blockData) => {
   let channelBlocks = document.querySelector("#channel-blocks");
   let imageBlocks = document.querySelector("#image-blocks");
   let videoBlocks = document.querySelector("#video-blocks");
-  let screeningVideoContainer = document.querySelector(".screening-video-container")
+  let screeningVideoContainer = document.querySelector(
+    ".screening-video-container",
+  );
   let audioBlocks = document.querySelector("#audio-blocks");
   let textBlocks = document.querySelector("#text-blocks");
   let articleBlocks = document.querySelector("#article-blocks");
   // Links!
   if (blockData.type == "Link") {
-    // console.log(blockData);
+    console.log("linkData", blockData);
 
     // Declares a “template literal” of the dynamic HTML we want.
     // One of the arena blocks that the owner of the channel created did not have a description so the console had an error of "null" so to prevent this error I had to add a "?" called optional chaining operator.
     // I pulled the syntax from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining.
     //  I learned that it accesses the blockData.description.html but if the description is null than it will cause errors but "?" instead it will provide an undefined.
 
+    let linkDescription = "";
+    if (blockData.description !== null) {
+      linkDescription = blockData.description?.html;
+    }
     let linkItem = `
 			<li class="link-block">
 				<figure>
@@ -47,9 +53,9 @@ let renderBlock = (blockData) => {
 						<source media="(width < 1000px)" srcset="${blockData.image.medium.src_2x}">
 						<img alt="${blockData.image.alt_text}" src="${blockData.image.large.src_2x}">
 					</picture>
+                    <h3>${blockData.title}</h3>
 					<figcaption>
-						<h3>${blockData.title}</h3>
-						${blockData.description?.html}
+						${linkDescription}
 					</figcaption>
 				</figure>
 				<p><a href="${blockData.source.url}">See the original ↗</a></p>
@@ -108,8 +114,7 @@ let renderBlock = (blockData) => {
     if (contentType.includes("video")) {
       console.log("video-type", blockData);
       let isScreeningContainerEmpty =
-       screeningVideoContainer.children.length ===
-        0;
+        screeningVideoContainer.children.length === 0;
       console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
 
       if (isScreeningContainerEmpty) {
@@ -133,8 +138,6 @@ let renderBlock = (blockData) => {
         videoBlocks.insertAdjacentHTML("beforeend", videoItem);
       }
       // …still up to you, but we’ll give you the `video` element:
-
-      
 
       // More on `video`, like the `autoplay` attribute:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
@@ -181,11 +184,10 @@ let renderBlock = (blockData) => {
     if (embedType.includes("video")) {
       console.log("blockData", blockData);
       let isScreeningContainerEmpty =
-       screeningVideoContainer.children.length ===
-        0;
-         console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
+        screeningVideoContainer.children.length === 0;
+      console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
       if (isScreeningContainerEmpty) {
-         let linkedVideoItem = `
+        let linkedVideoItem = `
 				<p>${blockData.title}</p>
                     <div class="screening-video-frame">
                         ${blockData.embed.html}
@@ -193,7 +195,10 @@ let renderBlock = (blockData) => {
                     </div>
                 
                     `;
-         screeningVideoContainer.insertAdjacentHTML("beforeend", linkedVideoItem);
+        screeningVideoContainer.insertAdjacentHTML(
+          "beforeend",
+          linkedVideoItem,
+        );
       } else {
         let linkedVideoItem = `
 				<li class="video-embed-block">
@@ -207,7 +212,6 @@ let renderBlock = (blockData) => {
         videoBlocks.insertAdjacentHTML("beforeend", linkedVideoItem);
       }
       // …still up to you, but here’s an example `iframe` element:
-
 
       // More on `iframe`:
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
@@ -241,16 +245,16 @@ let renderBlock = (blockData) => {
 						<source media="(width < 500px)" srcset="${blockData.image.small.src_2x}">
 						<source media="(width < 1000px)" srcset="${blockData.image.medium.src_2x}">
 						<img alt="${blockData.image.alt_text}" src="${blockData.image.large.src_2x}">
+                        <h3>${blockData.title}</h3>
 					</picture>
 					<figcaption>
-						<h3>${blockData.title}</h3>
 						${blockData.description?.html}
 					</figcaption>
 				</figure>
 				<p><a href="${blockData.source.url}">See the original ↗</a></p>
 			</li>
 				`;
-      textBlocks.insertAdjacentHTML("beforeend", behanceItem);
+      articleBlocks.insertAdjacentHTML("beforeend", behanceItem);
     }
   }
 };

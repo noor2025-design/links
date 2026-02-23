@@ -293,6 +293,10 @@ li:has(.image-block) {
   column-count: 1;
   padding-block: 2rem;
 }
+.link-block{
+   break-inside: avoid;
+   height: 60vh;
+}
 /* :last-of-type selector allows you to target the last occurence of an element within its container and not the entire page. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
 .link-block p:last-of-type {
@@ -301,10 +305,14 @@ li:has(.image-block) {
 .link-block > figure {
   padding: 2rem;
   width: 60vw;
+  display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: center;
 }
 
 .link-block picture{
-width: 50%;
+width: 60%;
 display: block;
 }
 
@@ -312,6 +320,22 @@ display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.link-block h3 {
+  padding: 2rem;
+  text-align: center;
+}
+figcaption {
+  text-align: center;
+  padding: 1rem;
+  overflow-y: auto;
+  height: 100px;
+  scrollbar-width: none;
+  padding-block: 1rem;
+}
+
+figcaption > p{
+  padding-block: 1rem;
 }
 
 /* This is for video-block styling */
@@ -330,10 +354,6 @@ video {
   left: 0;
   width: 100%;
   height: 100%;
-}
-figcaption {
-  text-align: center;
-  padding: 1rem;
 }
 
 /* This is styling for video-embed-block */
