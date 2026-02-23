@@ -23,7 +23,6 @@ let renderBlock = (blockData) => {
   //   console.log(blockData.type);
 
   // To start, a shared `ul` where we’ll insert all our blocks
-  let channelBlocks = document.querySelector("#channel-blocks");
   let imageBlocks = document.querySelector("#image-blocks");
   let videoBlocks = document.querySelector("#video-blocks");
   let screeningVideoContainer = document.querySelector(

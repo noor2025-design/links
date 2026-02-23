@@ -30,10 +30,10 @@ let header = document.querySelector("header");
 // console.log("header.scrollHeight", header.scrollHeight);
 
 // I had an issue with my nav to each section where the page would scroll pass the header and directly into the content. With help from a tutor and W3 schools article on scroll-margin https://www.w3schools.com/cssref/css_pr_scroll-margin.php. I used js style property to set the scrollMarginTop on each content section. This adds 700px of space so that when a user clicks the nav link, it doesnt scroll past the header.
-imageBlocks.style.scrollMarginTop = `${200}px`;
-videoSection.style.scrollMarginTop = `${200}px`;
-textBlocks.style.scrollMarginTop = `${200}px`;
-audioBlocks.style.scrollMarginTop = `${200}px`;
+imageBlocks.style.scrollMarginTop = "350px";
+videoSection.style.scrollMarginTop = "155px";
+textBlocks.style.scrollMarginTop = "300px";
+audioBlocks.style.scrollMarginTop = "300px";
 
 let stickyHeaderElement = document.querySelector(".sticky-header");
 let bannerVideoElement = document.querySelector(".banner-video");
@@ -66,3 +66,4 @@ backToTop.addEventListener("click",()=>{
   behavior: "smooth",
 });
 })
+// attribute mdn
