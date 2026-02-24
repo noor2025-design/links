@@ -151,6 +151,7 @@ main {
   font-family: var(--secondary-font);
   font-size: 4rem;
   color: var(--green-accent-color);
+  text-shadow: 6px 2px 5px #aa1f1f;
   margin-block: 2rem 0;
   line-height: 0.8;
 }
