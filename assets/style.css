@@ -212,23 +212,35 @@ h1 {
 /* General Block Styling */
 
 /* I chose column-count instead of CSS Grid because it more easily distributes images into vertical columns based on height to create a stacked gallery effect which I learned from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7. */
-#image-blocks,
-#article-blocks {
+#image-blocks{
   column-count: 1;
   padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#article-blocks {
+  display: flex;
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  
 }
 .pdf-block,
 .text-block,
 .link-block > figure {
   padding: 1.5rem;
-  width: 70vw;
+  width: 70%;
+  margin-inline: auto;
 }
 
 /* This is for image-block styling */
 
 li:has(.image-block) {
   position: relative;
-  width: 60vw;
+  width: 80%;
   margin-bottom: 1rem;
 }
 
@@ -288,8 +300,11 @@ li:has(.image-block) {
 
 /* This is for link-block styling */
 .link-block {
-  height: auto;
+  break-inside: avoid;
   margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 /* The :last-of-type selector targets the last <p> element inside the parent container so that I can style only the last paragraph within .linkblock. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
@@ -334,10 +349,16 @@ figcaption > p {
 
 /* This is for video-block styling */
 #video-blocks {
-  column-count: 1;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 .video-gallery {
   padding: 2rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 /* This is the Now showing element */
 
@@ -358,9 +379,10 @@ figcaption > p {
   transform: translate(100%, -50%);
 }
 li:has(video) {
-  width: 70vw;
+  width: 100%;
   box-sizing: border-box;
   margin-bottom: 2rem;
+  align-self: center;
 }
 
 video {
@@ -374,8 +396,9 @@ video {
 /* This is styling for video-embed-block */
 .video-embed-block {
   margin-bottom: 2rem;
-  width: 70vw;
+  width: 100%;
   position: relative;
+  align-self: center;
 }
 
 .screening-container {
@@ -542,6 +565,8 @@ footer {
   #image-blocks
    {
     column-count: 2;
+    display: block;
+    width: 80%;
   }
   h1 {
     font-size: 3rem;
@@ -573,7 +598,7 @@ footer {
   padding-block: 1.5rem;
 }
 li:has(.image-block) {
-  width: 35vw;
+  width: 100%;
 }
 li:has(video), 
  .video-embed-block  {
@@ -644,11 +669,13 @@ li:has(.image-block) {
 }
 li:has(video), 
  .video-embed-block  {
-  width: 35vw;
+  width: 50%;
+  padding: 1rem;
  }
    
   #video-blocks, #article-blocks {
-    column-count: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
    .audio-embed-block {
    width: 40vw;
@@ -660,13 +687,14 @@ li:has(video),
   width: 80%;
   height: 100%;
 }
-.link-block > figure {
-  padding: 2rem;
-  width: 30vw;
-}
+
 .link-block {
-  break-inside: avoid;
-  height: 75vh;
+  width: 50%;
+}
+#text-blocks{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 }
 
