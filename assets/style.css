@@ -1,6 +1,7 @@
 :root {
   --secondary-background-color: #f6e3cb;
   --background-color: #4f0803e2;
+  --green-accent-color: #c5d83f;
   --primary-font: "space mono", sans-serif;
   --secondary-font: "Bebas Neue", sans-serif;
 }
@@ -12,7 +13,7 @@ body {
   color: var(--secondary-background-color);
   background-color: var(--background-color);
   background-image: url("../assets/images/hong-kong-background.jpg");
-  font-family: "Space Mono", sans-serif;
+  font-family: var(--primary-font)
 }
 nav {
   display: flex;
@@ -52,7 +53,7 @@ nav ul li:not(:last-child)::after {
 }
 
 nav ul li:hover {
-  color: #c5d83f;
+  color: var(--green-accent-color)
 }
 
 header {
@@ -114,7 +115,7 @@ header {
 #scroll-bar {
   height: 100%;
   width: 0%;
-  background-color: #c5d83f;
+  background-color: var(--green-accent-color)
 }
 
 .banner-video {
@@ -152,13 +153,12 @@ main {
 .block-background > h3 {
   font-family: var(--secondary-font);
   font-size: 4rem;
-  color: #c5d83f;
+  color: var(--green-accent-color);
   margin-block: 2rem 0;
   line-height: 0.8;
 }
 
 .intro-text {
-  /* padding with 3 values affects top left/right bottom */
   padding: 1rem 3rem 4rem;
   display: flex;
   justify-content: center;
@@ -345,14 +345,14 @@ figcaption > p {
 .video-gallery p {
   display: inline-block;
   margin-block: 2rem;
-  color: #c5d83f;
+  color: var(--green-accent-color)
   position: relative;
 }
 .video-gallery p::after {
   content: "";
   width: 100%;
   height: 2px;
-  background-color: #c5d83f;
+  background-color: var(--green-accent-color)
   position: absolute;
   right: -10px;
   top: 50%;
@@ -396,7 +396,7 @@ video {
 }
 .screening-header > h4 {
   font-size: 2rem;
-  color: #c5d83f;
+  color:var(--green-accent-color)
   margin-block: 2rem;
 }
 
@@ -525,7 +525,7 @@ footer {
 .footer-links {
   padding: 4rem 6rem;
   text-align: center;
-  color: #c5d83f;
+  color: var(--green-accent-color)
 }
 .back-to-top {
   cursor: pointer;
