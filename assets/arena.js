@@ -18,8 +18,6 @@ let placeChannelInfo = (channelData) => {
 
 // Then our big function for specific-block-type rendering:
 let renderBlock = (blockData) => {
-  //   console.log(blockData.type);
-
   // To start, a shared `ul` where we’ll insert all our blocks
   let imageBlocks = document.querySelector("#image-blocks");
   let videoBlocks = document.querySelector("#video-blocks");
@@ -30,7 +28,6 @@ let renderBlock = (blockData) => {
   let textBlocks = document.querySelector("#text-blocks");
   let articleBlocks = document.querySelector("#article-blocks");
 
-  
   // Links!
   if (blockData.type == "Link") {
     console.log("linkData", blockData);
@@ -40,7 +37,6 @@ let renderBlock = (blockData) => {
     // One of the arena blocks that the owner of the channel created did not have a description so the console had an error of "null" so to prevent this error I had to add a "?" called optional chaining operator.
     // I pulled the syntax from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining.
     //  I learned that it accesses the blockData.description.html but if the description is null than it will cause errors but "?" instead it will provide an undefined.
-
     let linkDescription = "";
     if (blockData.description !== null) {
       linkDescription = blockData.description?.html;
@@ -101,7 +97,6 @@ let renderBlock = (blockData) => {
 		${blockData.content.html}
 	</li>
 `;
-
     textBlocks.insertAdjacentHTML("beforeend", textItem);
     console.log("text-type", blockData);
   }
@@ -110,6 +105,10 @@ let renderBlock = (blockData) => {
   else if (blockData.type == "Attachment") {
     let contentType = blockData.attachment.content_type; // Save us some repetition.
 
+    /* I used ChatGPT for guidance on rendering uploaded video attachments but only having one video larger than the other.
+    A tutor helped clarify how content_type and .includes("video")
+   determine the file type, and how children.length separates
+   the first featured video from the rest. */
     // Uploaded videos!
     if (contentType.includes("video")) {
       console.log("video-type", blockData);
@@ -177,7 +176,11 @@ let renderBlock = (blockData) => {
     }
   }
 
-  // Linked (embedded) media…
+  // Linked (embedded) media… /*
+  // I used ChatGPT for guidance on rendering embedded videos conditionally.
+  //    A tutor helped clarify how to check embedType and use children.length
+  //    to separate the first (featured) video from the rest.
+  //    This structure allows intentional layout hierarchy based on API data. */
   else if (blockData.type == "Embed") {
     let embedType = blockData.embed.type;
 
