@@ -23,7 +23,7 @@ nav {
 nav ul {
   display: flex;
 }
-
+/* I used this article https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/cursor to add the property cursor-pointer so that it changes the mouse cursor thats usually an arrow to a hand icon.  */
 nav ul li {
   padding: 1.5rem;
   position: relative;
@@ -36,11 +36,9 @@ nav ul li {
     font-size: 2.5rem;
     white-space: nowrap;
   }
-/* I used this article to add the property cursor-pointer so that it changes the mouse cursor thats usually an arrow to a hand icon.  https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/cursor */
 
-/* I used this CSS :not psuedo-class syntax from https://www.w3schools.com/cssref/sel_not.php */
-/* I used this syntax to add a seperator after each nav link except the last one. The :not(:last-child) filters to the last li so that it only appears between the links and not the final one. The parent is unaffected and targets the right li elements.  */
 
+/* I used this CSS :not psuedo-class syntax from https://www.w3schools.com/cssref/sel_not.php. I used nav ul li:not(:last-child)::after to add a vertical seperator after each navigation item except the last one. This selector excludes the final <li> so that the seperaot only appears between links and not after the last one. */
 nav ul li:not(:last-child)::after {
   content: "";
   width: 1.5px;
@@ -64,12 +62,12 @@ header {
   align-items: center;
   display: flex;
   flex-direction: column;
-  /* border-bottom: 2px solid #412b2e; */
-  /* Used Box Shadow Generator using: https://html-css-js.com/css/generator/box-shadow/
-    This code adds a shadow effect to the sticky header element. The shadow has 4 values with first shifting horizontal and second value vertically and the thirds value adding a blur and opacity value along with the color chosen.  */
   -webkit-box-shadow: 0px -14px 22px 5px #000000;
   box-shadow: 0px -14px 22px 5px #000000;
 }
+/* I Used Box Shadow Generator using: https://html-css-js.com/css/generator/box-shadow/
+    This code adds a shadow effect to the header element. The shadow has 4 values with first shifting horizontal and second value vertically and the third value adding a blur and opacity value along with the color chosen.  */
+
 .sticky-header {
   position: fixed;
   top: 0;
@@ -79,8 +77,7 @@ header {
   padding: 0.25rem;
 }
 
-/* Attribute for keyframeanimations */
-
+/* I used the syntax for css animations from these articles https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using,https://www.w3schools.com/css/css3_animations.asp,https://www.w3schools.com/cssref/atrule_keyframes.php,https://css-tricks.com/ease-out-in-ease-in-out/. These animations move the element vertically while changing its opacity to create a smooth slide and fade effect when showing or hiding it. */
 .hidden {
   animation: slideFadeOut 1s ease-in-out forwards;
 }
@@ -130,7 +127,7 @@ header {
   height: 100%;
 }
 
-/* I learned this CSS technique :has() to only target the paragraph elements that inherits with the id channel-link */
+/* I learned this CSS technique :has() pseudo-class to only target <p> elements that contain the element with the id channel-link so that I can apply padding only to those specific paragraphs */
 /* I pulled this information from https://dev.to/mechcloud_academy/exploring-the-has-pseudo-class-in-css-4p63 */
 
 p:has(#channel-link) {
@@ -192,8 +189,8 @@ h1 {
   color: #aa1f1f;
   text-align: center;
   padding-block: 1rem 0.25rem;
-   text-shadow: 6px 2px 5px #c5d83f;
-    /*text shadow effect from https://www.w3schools.com/css/css3_shadows.asp */
+  text-shadow: 6px 2px 5px #c5d83f;
+    /*I used W3Schools to apply the text-shadow property to get the text shadow effect from https://www.w3schools.com/css/css3_shadows.asp. The different values moves the shadows horizontally, vertically and adds a blur. */
 }
 
 .arena-collection {
@@ -213,6 +210,8 @@ h1 {
 }
 
 /* General Block Styling */
+
+/* I chose column-count instead of CSS Grid because it more easily distributes images into vertical columns based on height to create a stacked gallery effect which I learned from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7. */
 #image-blocks,
 #article-blocks {
   column-count: 1;
@@ -225,8 +224,6 @@ h1 {
   width: 70vw;
 }
 /* This is for image-block styling */
-/* I chose to use a masonry layout with the column-count property which I found from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7.
- CSS Grid was a bit more challenging to use with the number of image blocks and different sections that I have but the column count property provides the same effect that I wanted to of a stacked image gallery. This property distributes a number of columns and flows based on height.   */
 
 li:has(.image-block) {
   position: relative;
