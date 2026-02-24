@@ -51,7 +51,7 @@ nav ul li:not(:last-child)::after {
 }
 
 nav ul li:hover {
-  color: var(--green-accent-color)
+  color: var(--green-accent-color);
 }
 
 header {
@@ -112,7 +112,7 @@ header {
 #scroll-bar {
   height: 100%;
   width: 0%;
-  background-color: var(--green-accent-color)
+  background-color: var(--green-accent-color);
 }
 
 .banner-video {
@@ -223,6 +223,7 @@ h1 {
   padding: 1.5rem;
   width: 70vw;
 }
+
 /* This is for image-block styling */
 
 li:has(.image-block) {
@@ -250,7 +251,7 @@ li:has(.image-block) {
 }
 
 /* I wanted to create an image overlay effect on my images which I found here: https://www.w3schools.com/howto/howto_css_overlay.asp */
-/* This effect creates an overlay for each image and the overlay is positioned absolute so that it sits on top of the image. The opacity is set at 0 which appears invisible and when a user hovers over than the transition property fades in and displays the text of the titles for each arena block. The top and left at 0 is where the overlay starts and the height and width is for the overlay to have the full size of the parent element.    */
+/* The overlay is positioned absolutely so it sits on top of the image and fills the full width and height of its parent. It starts with the opacity at 0 to be hidden and on hover the opacity transitions in to reveal the title text.    */
 .image-overlay {
   position: absolute;
   top: 0;
@@ -260,7 +261,7 @@ li:has(.image-block) {
   width: 100%;
   opacity: 0;
   transition: opacity 0.2s;
-  color: #fff;
+  color: var(--secondary-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,7 +272,6 @@ li:has(.image-block) {
 .image-overlay:hover {
   opacity: 1;
 }
-/* I used the code from this site for background image and filter overlay for a vintage effect https://dev.to/debadeepsen/vintage-photo-effect-with-css-16oj */
 .vintage-overlay {
   position: absolute;
   top: 0;
@@ -284,14 +284,14 @@ li:has(.image-block) {
     url(https://i.ibb.co/vJt5HSh/noisy-texture-300x300-o10-d10-c-a82851-t1.png);
   filter: blur(0.05em) saturate(0.2) contrast(1.5) brightness(1.5);
 }
+/* I used the code from this site for background image and filter overlay for a vintage effect from https://dev.to/debadeepsen/vintage-photo-effect-with-css-16oj. The layered gradients and noise texture creates a tinted, grainy background. The filter reduces saturation and sdjusts contrast and brightness to achieve a faded retro look.  */
 
 /* This is for link-block styling */
-
 .link-block {
   height: auto;
   margin-bottom: 3rem;
 }
-/* :last-of-type selector allows you to target the last occurence of an element within its container and not the entire page. */
+/* The :last-of-type selector targets the last <p> element inside the parent container so that I can style only the last paragraph within .linkblock. */
 /* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
 .link-block p:last-of-type {
   text-align: center;
@@ -326,6 +326,7 @@ figcaption {
   scrollbar-width: none;
   padding-block: 1rem;
 }
+/* I learned scrollbar-width from https://css-tricks.com/almanac/properties/s/scrollbar-width/ to hide the vertical scrollbar in the figcaption so that users can scroll long text in the links within the descriptions. */
 
 figcaption > p {
   padding-block: 1rem;
@@ -339,17 +340,18 @@ figcaption > p {
   padding: 2rem;
 }
 /* This is the Now showing element */
+
 .video-gallery p {
   display: inline-block;
   margin-block: 2rem;
-  color: var(--green-accent-color)
+  color: var(--green-accent-color);
   position: relative;
 }
 .video-gallery p::after {
   content: "";
   width: 100%;
   height: 2px;
-  background-color: var(--green-accent-color)
+  background-color: var(--green-accent-color);
   position: absolute;
   right: -10px;
   top: 50%;
@@ -393,7 +395,7 @@ video {
 }
 .screening-header > h4 {
   font-size: 2rem;
-  color:var(--green-accent-color)
+  color:var(--green-accent-color);
   margin-block: 2rem;
 }
 
@@ -445,7 +447,7 @@ video {
   opacity: 0;
   pointer-events: none;
 }
-/* Tutor helped me understand how to build a hover overlay effect to make it interactive. My understanding is that the overlay is positioned on top of the video and uses opacity transition to fade smoothly. When user hovers over the video-frame, the overlay becomes transparent and stops blocking interaction showing the video underneath. Also, I used pointer-events property that I found on https://css-tricks.com/almanac/properties/p/pointer-events/.The poiter-events: none prevents the overlay from blocking clicks on the video.   */
+/* I used pointer-events property that I found on https://css-tricks.com/almanac/properties/p/pointer-events/.The pointer-events: none prevents the overlay from blocking clicks on the video. */
 
 /* This is for styling for audio-block */
 .audio-block {
@@ -488,8 +490,8 @@ video {
   height: 100%;
 }
 
-/* :first-of-type select allows you to target the first occurence of an element within its container and not the entire page. */
-/* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/f/first-of-type/ */
+/* The selector p:first-of-type targets the first <p> element within the parent container so that I only style the first paragraph inside .text-block and not the entire page. */
+/* I pulled this syntax from https://css-tricks.com/almanac/pseudo-selectors/f/first-of-type/ */
 .text-block p:first-of-type {
   font-family: var(--secondary-font);
   font-size: 3rem;
@@ -522,7 +524,7 @@ footer {
 .footer-links {
   padding: 4rem 6rem;
   text-align: center;
-  color: var(--green-accent-color)
+  color: var(--green-accent-color);
 }
 .back-to-top {
   cursor: pointer;
@@ -541,13 +543,9 @@ footer {
    {
     column-count: 2;
   }
- 
- 
   h1 {
     font-size: 3rem;
     line-height: 0.75;
-    
-   
   }
 
   .heading-text {
@@ -555,7 +553,6 @@ footer {
     flex-direction: column;
     align-items: center;
   }
-
   .cantonese-text {
     font-weight: 400;
     font-size: 4rem;
@@ -582,8 +579,6 @@ li:has(video),
  .video-embed-block  {
   width: 60vw;
  }
-
-
 }
 
 @media (width>=1024px) {
@@ -665,7 +660,6 @@ li:has(video),
   width: 80%;
   height: 100%;
 }
-
 .link-block > figure {
   padding: 2rem;
   width: 30vw;
@@ -674,7 +668,9 @@ li:has(video),
   break-inside: avoid;
   height: 75vh;
 }
-
 }
 
-/* I used the class reference >550px for mobile layout and other breakpoint was found in this article for larger screens https://penpot.app/blog/how-to-use-css-and-media-query-breakpoints-to-create-responsive-layouts/ */
+/* I was having issues with some blocks getting cut between columns and I asked chatGPT how to fix this and the syntax given was break-inside avoid and I also read this article https://www.geeksforgeeks.org/css/how-to-prevent-column-break-within-an-element/.This prevents the link block from being split between columns in the masonry layout and keeping each block visually intact. */
+
+
+/* Referenced this article for media query breakpoints. I used 550px as a breakpoint for small tablet layouts and 1024px for desktop screens to create responsive layout https://penpot.app/blog/how-to-use-css-and-media-query-breakpoints-to-create-responsive-layouts/ */
