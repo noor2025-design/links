@@ -11,8 +11,6 @@ let placeChannelInfo = (channelData) => {
 
   // Then set their content/attributes to our data:
   channelTitle.innerHTML = "HONG KONG";
-
-  //   channelTitle.innerHTML = channelData.title;
   channelDescription.innerHTML = channelData.description.html;
   channelCount.innerHTML = channelData.counts.blocks;
   channelLink.href = `https://www.are.na/channel/${channelSlug}`;
@@ -31,11 +29,14 @@ let renderBlock = (blockData) => {
   let audioBlocks = document.querySelector("#audio-blocks");
   let textBlocks = document.querySelector("#text-blocks");
   let articleBlocks = document.querySelector("#article-blocks");
+
+  
   // Links!
   if (blockData.type == "Link") {
     console.log("linkData", blockData);
 
     // Declares a “template literal” of the dynamic HTML we want.
+
     // One of the arena blocks that the owner of the channel created did not have a description so the console had an error of "null" so to prevent this error I had to add a "?" called optional chaining operator.
     // I pulled the syntax from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining.
     //  I learned that it accesses the blockData.description.html but if the description is null than it will cause errors but "?" instead it will provide an undefined.

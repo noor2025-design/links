@@ -1,4 +1,3 @@
-// I created a new js file just for affecting elements on the page that were not specifically for arena as that file was getting too long and cluttered.
 
 // I wanted to add a scroll bar at the top of the page in js so I asked ChatGPT how that is done but chatGPT was verbose and used the const variable so I looked at the following articles in addition: https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event, https://www.w3schools.com/jsref/prop_element_scrollheight.asp, https://www.w3schools.com/jsref/obj_window.asp.
 // I will explain how I undertsand each line of code below.

@@ -4,7 +4,7 @@
   --primary-font: "space mono", sans-serif;
   --secondary-font: "Bebas Neue", sans-serif;
 }
-/* AI assisted for html element scroll-behavior from chatGPT on smooth scroll so that when a user clicks a nav link it scrolls smoothly than jumping to the section immediately. */
+/* AI assisted (ChatGPT) for html element smooth scroll-behavior for navigation. This makes the link navigation scroll smoothly instead of jumping to each section.  */
 html {
   scroll-behavior: smooth;
 }
@@ -39,6 +39,7 @@ nav ul li {
 
 /* I used this CSS :not psuedo-class syntax from https://www.w3schools.com/cssref/sel_not.php */
 /* I used this syntax to add a seperator after each nav link except the last one. The :not(:last-child) filters to the last li so that it only appears between the links and not the final one. The parent is unaffected and targets the right li elements.  */
+
 nav ul li:not(:last-child)::after {
   content: "";
   width: 1.5px;
@@ -124,13 +125,13 @@ header {
 }
 .banner-video video {
   object-fit: cover;
-  /* object-position:center top; */
   width: 100%;
   height: 100%;
 }
 
 /* I learned this CSS technique :has() to only target the paragraph elements that inherits with the id channel-link */
 /* I pulled this information from https://dev.to/mechcloud_academy/exploring-the-has-pseudo-class-in-css-4p63 */
+
 p:has(#channel-link) {
   padding: 2rem;
 }
@@ -139,13 +140,11 @@ h2 {
   font-family: var(--secondary-font);
   font-size: 4rem;
   color: var(--background-color);
-  /* align-self: flex-start; */
 }
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: var(--background-color); */
   width: 100%;
   margin-inline: auto;
 }
@@ -182,8 +181,6 @@ main {
   bottom: 0;
   transform: translateX(-50%);
   width: 50%;
-  /* height: 2px;
-background-color: black; */
   border-bottom: 2px solid #412b2e;
 }
 .intro-text p {
@@ -192,10 +189,6 @@ background-color: black; */
 h1 {
   font-family: "Dela Gothic One", sans-serif;
   font-size: 2rem;
-  /* position: absolute; */
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
   color: #aa1f1f;
   text-align: center;
   padding-block: 1rem 0.25rem;
@@ -243,7 +236,6 @@ li:has(.image-block) {
 
 .image-block {
   width: 100%;
-  /* aspect-ratio: 1/1; */
   overflow: hidden;
   display: block;
 }
@@ -382,7 +374,6 @@ video {
 
 /* This is styling for video-embed-block */
 .video-embed-block {
-  /* padding: 2rem; */
   margin-bottom: 2rem;
   width: 70vw;
   position: relative;
@@ -486,8 +477,6 @@ video {
 .audio-embed-block > iframe {
   width: 100%;
   height: 100%;
-
-  /* height: 100%; */
 }
 
 /* This is styling for pdf-block */
@@ -512,7 +501,6 @@ video {
 
 .text-block p:last-of-type {
   text-align: center;
-  /* font-family: var(--secondary-font); */
 }
 
 p:has(#channel-count) {
@@ -521,8 +509,6 @@ p:has(#channel-count) {
 
 footer {
   width: 100%;
-  /* height: 40vh; */
-  /* padding: ; */
   background-color: #150c0c;
   display: flex;
   flex-direction: column;
@@ -586,7 +572,6 @@ footer {
   padding-block: 2rem;
 }
 .intro-text {
-  /* padding with 3 values affects top left/right bottom */
   padding: 1rem 6rem 4rem;
 }
 .block-background {
