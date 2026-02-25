@@ -128,8 +128,7 @@ header {
 }
 
 /* I learned this CSS technique :has() pseudo-class to only target <p> elements that contain the element with the id channel-link so that I can apply padding only to those specific paragraphs */
-/* I pulled this information from https://dev.to/mechcloud_academy/exploring-the-has-pseudo-class-in-css-4p63 */
-
+/* I pulled this syntax from https://dev.to/mechcloud_academy/exploring-the-has-pseudo-class-in-css-4p63 */
 p:has(#channel-link) {
   padding: 2rem;
 }
@@ -212,7 +211,7 @@ h1 {
 
 /* General Block Styling */
 
-/* I chose column-count instead of CSS Grid because it more easily distributes images into vertical columns based on height to create a stacked gallery effect which I learned from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7. */
+/* I chose column-count property because it more easily distributes images into vertical columns based on height to create a stacked gallery effect which I learned from: https://dev.to/ryandsouza13/creating-a-responsive-masonry-layout-using-the-css-column-count-property-4kf7. */
 #image-blocks{
   column-count: 1;
   padding-block: 2rem;
@@ -263,8 +262,6 @@ li:has(.image-block) {
   transform: scale(1.1);
 }
 
-/* I wanted to create an image overlay effect on my images which I found here: https://www.w3schools.com/howto/howto_css_overlay.asp */
-/* The overlay is positioned absolutely so it sits on top of the image and fills the full width and height of its parent. It starts with the opacity at 0 to be hidden and on hover the opacity transitions in to reveal the title text.    */
 .image-overlay {
   position: absolute;
   top: 0;
@@ -307,11 +304,15 @@ li:has(.image-block) {
   flex-direction: column;
   align-items: center;
 }
+/* I was having issues with some blocks getting cut between columns and I asked chatGPT how to fix this and the syntax given was break-inside avoid and I also read this article https://www.geeksforgeeks.org/css/how-to-prevent-column-break-within-an-element/.This prevents the link block from being split between columns in the masonry layout and keeping each block visually intact. */
+
+
 /* The :last-of-type selector targets the last <p> element inside the parent container so that I can style only the last paragraph within .linkblock. */
-/* I pulled this from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
+/* I pulled this syntax from https://css-tricks.com/almanac/pseudo-selectors/l/last-of-type/ */
 .link-block p:last-of-type {
   text-align: center;
 }
+
 .link-block > figure {
   display: flex;
   justify-content: center;
@@ -354,6 +355,7 @@ figcaption > p {
   flex-direction: column;
   width: 90%;
 }
+
 .video-gallery {
   padding: 2rem;
   width: 90%;
@@ -698,8 +700,5 @@ li:has(video),
   flex-direction: column;
 }
 }
-
-/* I was having issues with some blocks getting cut between columns and I asked chatGPT how to fix this and the syntax given was break-inside avoid and I also read this article https://www.geeksforgeeks.org/css/how-to-prevent-column-break-within-an-element/.This prevents the link block from being split between columns in the masonry layout and keeping each block visually intact. */
-
 
 /* Referenced this article for media query breakpoints. I used 550px as a breakpoint for small tablet layouts and 1024px for desktop screens to create responsive layout https://penpot.app/blog/how-to-use-css-and-media-query-breakpoints-to-create-responsive-layouts/ */

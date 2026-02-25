@@ -68,7 +68,7 @@ let renderBlock = (blockData) => {
   // Images!
   else if (blockData.type == "Image") {
     // …up to you!
-    console.log("image-type", blockData);
+
 
     let imageItem = `
         <li>
@@ -107,14 +107,14 @@ let renderBlock = (blockData) => {
 
     /* I used ChatGPT for guidance on rendering uploaded video attachments but only having one video larger than the other.
     A tutor helped clarify how content_type and .includes("video")
-   determine the file type, and how children.length separates
-   the first featured video from the rest. */
+   determines the file type, and how children.length separates
+   the first featured video from the rest. It is checking if the children.length is zero to make sure that the container has no child elements. The tutor introduced me to using descriptive boolean variable names with prefixes such as "is". The isScreeningContainerEmpty will be true when the container is empty and false when there are children. */
     // Uploaded videos!
     if (contentType.includes("video")) {
-      console.log("video-type", blockData);
+    
       let isScreeningContainerEmpty =
         screeningVideoContainer.children.length === 0;
-      console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
+    
 
       if (isScreeningContainerEmpty) {
         let videoItem = `
@@ -154,7 +154,7 @@ let renderBlock = (blockData) => {
 	</li>
       `;
       textBlocks.insertAdjacentHTML("beforeend", pdfItem);
-      console.log("pdf-type", blockData);
+      
     }
 
     // Uploaded audio!
@@ -179,14 +179,14 @@ let renderBlock = (blockData) => {
   // Linked (embedded) media… /*
   // I used ChatGPT for guidance on rendering embedded videos conditionally.
   //    A tutor helped clarify how to check embedType and use children.length
-  //    to separate the first (featured) video from the rest.
-  //    This structure allows intentional layout hierarchy based on API data. */
+  //    to separate the first featured video from the rest.
+  //    This structure allows intentional layout hierarchy based on the API data. */
   else if (blockData.type == "Embed") {
     let embedType = blockData.embed.type;
 
     // Linked video!
     if (embedType.includes("video")) {
-      console.log("blockData", blockData);
+    
       let isScreeningContainerEmpty =
         screeningVideoContainer.children.length === 0;
       console.log("isScreeningContainerEmpty", isScreeningContainerEmpty);
@@ -221,7 +221,7 @@ let renderBlock = (blockData) => {
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
     }
 
-    // There is an issue where an arena block is a image gallery from behance created by the owner of the channel that is being pulled in as linked audio instead of images but displayed as linked audio on the page. I learned from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean that a boolean expression checks for two conditions in this case it would be rich embed type and not behance using the && "AND" operator and ! to not include behance until I figure out how to solve this issue.
+    // There is an issue where an arena block behance image gallery was being pulled in and displayed as linked audio instead of images. I learned from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean,https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Booleanthat that the a && "AND" operator can check two conditions at once - in this case, the embedtype is "rich" and the source is not behance (using ! to exclude it). This seperates behance block so that it renders correctly. A tutor advised that behance blocks should render in the text/article secction rather than as images, as the API returns them with title and descriptio fields rather than treating them as images. 
 
     // Linked audio!
     else if (
@@ -262,7 +262,7 @@ let renderBlock = (blockData) => {
     }
   }
 };
-// Attributing to above conditional statements for linked audio.When arena pulled in content through the API, the behance link was incorrectly sorted into the linked audio section because it came through as a rich embed the same type as linked audio embeds. To fix this, I wrote two conditions: the first checks if the embed is a rich type but does not include behance in the url and if so treats it as audio. The second checks if the embed is a rich type and includes behance in the url. A tutor informed me that behance should go in the text section rather than the image section although it appears as an image because the behance link comes with text like a title and description and are not being read as images by the API.
+
 
 // A function to display the owner/collaborator info:
 let renderUser = (userData) => {
